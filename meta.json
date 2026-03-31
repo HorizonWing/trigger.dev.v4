@@ -6163,6 +6163,43 @@
     ]
   },
   {
+    "id": "triggerdevv4",
+    "name": "Trigger.dev v4",
+    "version": "v4-beta",
+    "description": "Trigger.dev v4 Webapp - open-source background jobs platform. Contains webapp, databases (Postgres, Redis, ClickHouse), Electric sync, Docker registry, and object storage (MinIO). Deploy triggerdevv4-worker separately for job execution.",
+    "logo": "triggerdotdev.svg",
+    "links": {
+      "github": "https://github.com/triggerdotdev/trigger.dev",
+      "website": "https://trigger.dev/",
+      "docs": "https://trigger.dev/docs/self-hosting/docker"
+    },
+    "tags": [
+      "background-jobs",
+      "task-scheduler",
+      "workflow",
+      "automation",
+      "self-hosted"
+    ]
+  },
+  {
+    "id": "triggerdevv4-worker",
+    "name": "Trigger.dev v4 Worker",
+    "version": "v4-beta",
+    "description": "Trigger.dev v4 Worker - job execution engine. Runs supervisor and Docker socket proxy to execute background jobs. Requires triggerdevv4 (Webapp) to be deployed first.",
+    "logo": "triggerdotdev.svg",
+    "links": {
+      "github": "https://github.com/triggerdotdev/trigger.dev",
+      "website": "https://trigger.dev/",
+      "docs": "https://trigger.dev/docs/self-hosting/docker"
+    },
+    "tags": [
+      "background-jobs",
+      "worker",
+      "automation",
+      "self-hosted"
+    ]
+  },
+  {
     "id": "triggerdotdev",
     "name": "Trigger.dev",
     "version": "v3",
