@@ -229,6 +229,5 @@ volumes:
 networks:
   supervisor:
     name: supervisor
-    external: true
   webapp:
     name: webapp
