@@ -321,8 +321,8 @@ services:
         exec /usr/bin/dumb-init -- pnpm run --filter supervisor start;
       "
     environment:
-      # Webapp API 地址（内网）
-      TRIGGER_API_URL: http://webapp:3000
+      # Webapp API 地址（外部地址，runner 容器需通过此地址回调）
+      TRIGGER_API_URL: ${APP_ORIGIN}
 
       # Worker Token（由 entrypoint 从共享卷读取，无需手动配置）
       # TRIGGER_WORKER_TOKEN 由 entrypoint 自动注入
@@ -333,16 +333,16 @@ services:
       # Managed Worker Secret（需与 webapp 匹配）
       MANAGED_WORKER_SECRET: ${MANAGED_WORKER_SECRET:-managed-secret}
 
-      # OTel 端点（指向 webapp 的 /otel 路径）
-      OTEL_EXPORTER_OTLP_ENDPOINT: http://webapp:3000/otel
+      # OTel 端点（指向 webapp 的外部 /otel 路径）
+      OTEL_EXPORTER_OTLP_ENDPOINT: ${APP_ORIGIN}/otel
 
       # Docker Registry（supervisor 要求 DOCKER_REGISTRY_* 变量名）
       DOCKER_REGISTRY_URL: https://${REGISTRY_HOST:-registry:5000}
       DOCKER_REGISTRY_USERNAME: ${REGISTRY_USERNAME:-registry-user}
       DOCKER_REGISTRY_PASSWORD: ${REGISTRY_PASSWORD}
 
-      # Runner 容器网络（加入 trigger-net 以访问 webapp）
-      DOCKER_RUNNER_NETWORKS: trigger-net
+      # Runner 容器网络（留空，runner 通过外部地址访问 webapp）
+      DOCKER_RUNNER_NETWORKS: ""
 
       # 镜像仓库（兼容旧变量，webapp 端使用）
       REGISTRY_HOST: ${REGISTRY_HOST:-localhost:5000}
