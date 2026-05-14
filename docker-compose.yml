@@ -289,6 +289,8 @@ services:
     image: ghcr.io/triggerdotdev/supervisor:${TRIGGER_IMAGE_TAG:-v4.4.4}
     restart: unless-stopped
     networks: [trigger-net]
+    deploy:
+      replicas: ${WORKER_REPLICAS:-2}
     cpus: "3"
     mem_limit: 3g
     depends_on:
