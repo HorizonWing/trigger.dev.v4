@@ -1,228 +1,94 @@
-# Dokploy Open Source Templates
+# Trigger.dev v4 自托管部署指南
 
-This is the official repository for the Dokploy Open Source Templates.
+## 文件说明
+- `docker-compose.yml` — 完整单机部署配置（含全部组件）
+- `.env` — 环境变量配置（**必须修改标注项目**）
+- `registry/auth.htpasswd` — 镜像仓库认证文件
 
-### How to add a new template
+## 部署前准备
 
+### 1. 生成随机密钥
+```bash
+openssl rand -hex 32  # 运行3次，分别填入 SESSION_SECRET、MAGIC_LINK_SECRET、ENCRYPTION_KEY
+```
 
-1. Fork the repository
-2. Create a new branch
-3. Add the template to the `blueprints` folder (`docker-compose.yml`, `template.toml`)
-4. Add the template metadata (name, description, version, logo, links, tags) to the `meta.json` file
-5. Add the logo to the template folder
-6. Commit and push your changes
-7. Create a pull request (PR)
-8. Every PR will automatically deploy a preview of the template to Dokploy.
-9. if anyone want to test the template before merging it, you can enter to the preview URL in the PR description, and search the template, click on the Template Card, scroll down and then copy the BASE64 value, and paste in the advanced section of your compose service, in the Import section or optional you can use the preview URL and paste in the
-BASE URL when creating a template.
+### 2. 修改 .env
+必须修改以下项目：
+- APP_ORIGIN → 你的服务器 IP 或域名
+- SESSION_SECRET / MAGIC_LINK_SECRET / ENCRYPTION_KEY
+- POSTGRES_PASSWORD
+- REGISTRY_PASSWORD
+- OBJECT_STORE_ACCESS_KEY / OBJECT_STORE_SECRET_KEY
 
-#### Optional
+### 3. 更新镜像仓库密码
+```bash
+# 安装工具
+sudo apt install apache2-utils -y
 
-If you want to run the project locally, you can run the project with the following command:
+# 生成新的 htpasswd（替换 registry/auth.htpasswd）
+htpasswd -Bbn registry-user 你的新密码 > registry/auth.htpasswd
+
+# 同步修改 .env 中的 REGISTRY_PASSWORD
+```
+
+## 启动
 
 ```bash
-cd app
-pnpm install
-pnpm run dev
-go to http://localhost:5173/
+# 首次启动
+docker compose up -d
+
+# 查看日志（获取首次登录的魔法链接）
+docker compose logs -f webapp
+
+# 登录内置镜像仓库（每台部署机器执行一次）
+docker login -u registry-user localhost:5000
 ```
 
-### Example
+## 访问地址
+- **Trigger.dev 仪表板**: http://你的IP:8030
+- **MinIO 管理界面**: http://你的IP:9001（用 OBJECT_STORE_ACCESS_KEY/SECRET_KEY 登录）
+- **镜像仓库**: localhost:5000（仅内部使用）
 
-Let's suppose you want to add the [Grafana](https://grafana.com/) template to the repository.
+## 在项目中连接自托管实例
 
-1. Create a new folder inside the `blueprints` folder named `grafana`
-2. Add the `docker-compose.yml` file to the folder
+```bash
+# 登录
+npx trigger.dev@latest login -a http://你的IP:8030 --profile self-hosted
 
-```yaml
-version: "3.8"
-services:
-  grafana:
-    image: grafana/grafana-enterprise:9.5.20
-    restart: unless-stopped
-    volumes:
-      - grafana-storage:/var/lib/grafana
-volumes:
-  grafana-storage: {}
-```
-3. Add the `template.toml` file to the folder, this is where we specify the domains, mounts and env variables, to understand more the structure of `template.toml` you can read here [Template.toml structure](#template.toml-structure)
+# 初始化项目
+npx trigger.dev@latest init -p <project-ref> -a http://你的IP:8030
 
-```toml
-[variables]
-main_domain = "${domain}"
+# 开发模式
+npx trigger.dev@latest dev --profile self-hosted
 
-[config]
-[[config.domains]]
-serviceName = "grafana"
-port = 3000
-host = "${main_domain}"
-
-
-[config.env]
-
-[[config.mounts]]
-```
-4. Add meta information to the `meta.json` file in the root folder
-
-```json
-{
-  "id": "grafana",
-  "name": "Grafana",
-  "version": "9.5.20",
-  "description": "Grafana is an open source platform for data visualization and monitoring.",
-  "logo": "grafana.svg",
-  "links": {
-    "github": "https://github.com/grafana/grafana",
-    "website": "https://grafana.com/",
-    "docs": "https://grafana.com/docs/"
-  },
-  "tags": [
-    "monitoring"
-  ]
-},
-```
-5. Add the logo to the folder
-6. Commit and push your changes
-7. Create a pull request
-
-### Template.toml structure
-
-Dokploy use a defined structure for the `template.toml` file, we have 4 sections available:
-
-1. `variables`: This is where we define the variables that will be used in the `domains`, `env` and `mounts` sections.
-2. `domains`: This is where we define the configuration for the template.
-3. `env`: This is where we define the environment variables for the template.
-4. `mounts`: This is where we define the mounts for the template.
-
-- The `variables(Optional)` structure is the following:
-
-```toml
-[variables]
-main_domain = "${domain}"
-my_domain = "https://my-domain.com"
-my_password = "${password:32}"
-any_helper = "${you-can-use-any-helper}"
+# 部署
+npx trigger.dev@latest deploy --profile self-hosted
 ```
 
-- The `config` structure is the following:
+## 升级版本
 
-```toml
-[config]
-# Optional sections below
+```bash
+# 修改 .env 中的 TRIGGER_IMAGE_TAG=v4.x.x
+# 然后重启
+docker compose pull
+docker compose up -d
 
-[[config.domains]]
-serviceName = "grafana" # Required
-port = 3000 # Required
-host = "${main_domain}" # Required
-path = "/" # Optional
-
-env = [
-    "AP_HOST=${main_domain}",
-    "AP_API_KEY=${api_key}",
-    "AP_ENCRYPTION_KEY=${encryption_key}",
-    "AP_JWT_SECRET=${jwt_secret}",
-    "AP_POSTGRES_PASSWORD=${postgres_password}"
-]
-
-[[config.mounts]]
-filePath = "/content/file.txt"
-content = """
-My content
-"""
+# 同步更新 SDK
+npx trigger.dev@latest update
 ```
 
-Important: you can reference any variable in the `domains`, `env` and `mounts` sections. just use the `${variable_name}` syntax, in the case you don't want to define a variable, you can use the `domain`, `base64`, `password`, `hash`, `uuid`, `randomPort`, `timestamp`, `jwt`, `email`, or `username` helpers.
+## 端口说明
+| 端口 | 服务 | 说明 |
+|------|------|------|
+| 8030 | Webapp | 主界面，对外开放 |
+| 5000 | Registry | 镜像仓库，仅本机使用 |
+| 9000 | MinIO API | 对象存储，仅内部 |
+| 9001 | MinIO 管理界面 | 建议关闭公网访问 |
 
-### Helpers
+## Dokploy 使用说明
+1. 在 Dokploy 创建 Docker Compose 服务
+2. 将 docker-compose.yml 内容粘贴进去
+3. 在 Environment 标签页填入 .env 中的所有变量
+4. 上传 registry/auth.htpasswd 或通过 Volumes 挂载
+5. 点击 Deploy
 
-We have a few helpers that are very common when creating a template, these are:
-
-- `domain`: This is a helper that will generate a random domain for the template.
-- `base64 or base64:length`: This is a helper that will encode a string to base64 (lenght is the number of bytes to encode not the encoded string length).
-- `password or password:length`: This is a helper that will generate a random password for the template.
-- `hash or hash:length`: This is a helper that will generate a hash for the template
-- `uuid`: This is a helper that will generate a uuid for the template.
-- `randomPort`: This is a helper that will generate a random port for the template.
-- `email`: This is a helper that will generate a random email for the template.
-- `username`: This is a helper that will generate a random username in lowercase for the template.
-- `timestamp`: This is a helper that will generate a timestamp for "now" in milli-second.
-  - `timestampms or timestampms:datetime`: This is a helper that will generate a timestamp in milli-seconds.
-  - `timestamps or timestamps:datetime`: This is a helper that will generate a timestamp in seconds.
-  - `datetime` parameter for `timestamps/timestampms` helpers must be a valid value for javascript new Date() (ie: `timestamps:2030-01-01T00:00:00Z`)
-- `jwt`: This is a helper that will generate a jwt for the template.
-  - `jwt:length`: will generate a random hex string of bytes length. _This should not be used in newer templates_
-  - `jwt:secret_var_name`: will generate a jwt with some default values, secret var name should be the name of the variable holding the secret
-  - `jwt:secret_var_name:payload_var_name`: is the same as above but you can pass partial or full payload for the jwt.
-    Here's a full example
-    ```toml
-    [variables]
-    main_domain = "${domain}"
-    mysecret = "cQsdycq1hDLopQonF6jUTqgQc5WEZTwWLL02J6XJ"
-    mypayload = """
-    {
-      "role": "jwt-tester",
-      "iss": "dokploy-templates",
-      "exp": ${timestamps:2030-01-01T00:00:00Z}
-    }
-    """
-    jwt = "${jwt:mysecret:mypayload}"
-    ```
-
-
-
-## General Requirements when creating a template
-
-- Don't use this way in your docker compose file:
-
-```yaml
-services:
-  grafana:
-    image: grafana/grafana-enterprise:9.5.20
-    restart: unless-stopped
-    ports:
-      - 3000:3000
-
-    # Instead use this way:
-    ports:
-      - 3000
-```
-
-- Don't use this way in your template.toml file, make sure to use the same service name as the one in the docker compose file:
-
-```toml
-[config]
-[[config.domains]]
-serviceName = "MyGrafanaService"
-# Instead use this way:
-serviceName = "grafana" # Make sure to use the same service name as the one in the docker compose file
-```
-
-- Don't use container_name in your docker compose file, make sure to use the same service name as the one in the template.toml file:
-
-```yaml
-services:
-  grafana:
-    container_name: grafana # ❌ Remove this
-```
-
-- Don't use dokploy-network in your docker compose file, by default all the templates have this flag enabled https://docs.dokploy.com/docs/core/docker-compose/utilities#isolated-deployments, so by default they have a internal network created, so you don't need to create a new one or use the dokploy-network name.
-
-```yaml
-services:
-  grafana:
-    networks:
-      - dokploy-network # ❌ Remove this or any other network defined
-```
-
-
-- Please before submit a PR, make sure to test the template in your instance, so the maintainers don't spend time trying to figure out what's wrong.
-
-1. Everytime you submit a PR, it will display a Preview Link.
-2. Enter to the Preview Link and search the template you've submitted.
-3. Click on the Template Card, and click the Copy Button in the Base64 Configuration.
-4. Go to your instance, create a new Compose Service, go to Advanced Section -> Scroll Down -> Import Section -> Paste the Base64 Value -> Click on the Import Button
-5. If everything is correct and set, you should see a modal with all the details (Compose File, Environment Variables, Mounts, Domains, etc)
-6. Now you can click on the Deploy Button and wait for the deployment to finish, and try to access to the service, if everything is correct you should access to the service and see the template working.
-
-
-use the command `node dedupe-and-sort-meta.js` to deduplicate and sort the meta.json file.

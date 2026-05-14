@@ -1,0 +1,289 @@
+# Trigger.dev v4 - 单机完整部署（适合 16C16G 服务器）
+# 包含：Webapp、Worker、PostgreSQL、Redis、Registry、MinIO、ClickHouse
+
+networks:
+  trigger-net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  registry_data:
+  minio_data:
+  clickhouse_data:
+  docker_certs:
+  shared_data:
+
+services:
+
+  # ============================================================
+  # 基础服务
+  # ============================================================
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    networks: [trigger-net]
+    environment:
+      POSTGRES_USER: trigger
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: trigger
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U trigger"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    networks: [trigger-net]
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ============================================================
+  # Docker Socket Proxy（安全隔离，代替直接挂载 docker.sock）
+  # ============================================================
+
+  docker-proxy:
+    image: lscr.io/linuxserver/socket-proxy:latest
+    restart: unless-stopped
+    networks: [trigger-net]
+    environment:
+      CONTAINERS: 1
+      IMAGES: 1
+      INFO: 1
+      NETWORKS: 1
+      VOLUMES: 1
+      POST: 1
+      BUILD: 1
+      EXEC: 1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    read_only: true
+    tmpfs:
+      - /run
+
+  # ============================================================
+  # 内置镜像仓库（Registry）
+  # ============================================================
+
+  registry:
+    image: registry:2
+    restart: unless-stopped
+    networks: [trigger-net]
+    ports:
+      - "5000:5000"
+    environment:
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
+    volumes:
+      - registry_data:/data
+      - ./registry/auth.htpasswd:/auth/htpasswd:ro
+
+  # ============================================================
+  # 内置对象存储（MinIO）
+  # ============================================================
+
+  minio:
+    image: minio/minio:latest
+    restart: unless-stopped
+    networks: [trigger-net]
+    ports:
+      - "9000:9000"
+      - "9001:9001"  # MinIO 管理界面
+    environment:
+      MINIO_ROOT_USER: ${OBJECT_STORE_ACCESS_KEY}
+      MINIO_ROOT_PASSWORD: ${OBJECT_STORE_SECRET_KEY}
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  minio-init:
+    image: minio/mc:latest
+    networks: [trigger-net]
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      mc alias set myminio http://minio:9000 ${OBJECT_STORE_ACCESS_KEY} ${OBJECT_STORE_SECRET_KEY};
+      mc mb --ignore-existing myminio/packets;
+      exit 0;
+      "
+
+  # ============================================================
+  # ClickHouse（日志和追踪，防止 PostgreSQL 无限增长）
+  # ============================================================
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:25.5-alpine
+    restart: unless-stopped
+    networks: [trigger-net]
+    environment:
+      CLICKHOUSE_USER: ${CLICKHOUSE_USER:-default}
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-clickhouse123}
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    healthcheck:
+      test: ["CMD", "clickhouse-client", "--user", "default", "--password", "${CLICKHOUSE_PASSWORD:-clickhouse123}", "--query", "SELECT 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ============================================================
+  # Webapp（仪表板 + API）
+  # ============================================================
+
+  webapp:
+    image: ghcr.io/triggerdotdev/trigger.dev:${TRIGGER_IMAGE_TAG:-v4.4.4}
+    restart: unless-stopped
+    networks: [trigger-net]
+    ports:
+      - "8030:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      clickhouse:
+        condition: service_healthy
+    volumes:
+      - shared_data:/home/node/shared
+    environment:
+      # 数据库
+      DATABASE_URL: postgresql://trigger:${POSTGRES_PASSWORD}@postgres:5432/trigger
+      DIRECT_URL: postgresql://trigger:${POSTGRES_PASSWORD}@postgres:5432/trigger
+      REDIS_URL: redis://redis:6379
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_TLS_DISABLED: "true"
+
+      # 安全密钥（必须修改）
+      SESSION_SECRET: ${SESSION_SECRET}
+      MAGIC_LINK_SECRET: ${MAGIC_LINK_SECRET}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+
+      # 访问地址（改成你的域名或 IP）
+      LOGIN_ORIGIN: ${APP_ORIGIN}
+      APP_ORIGIN: ${APP_ORIGIN}
+
+      # 内置对象存储
+      OBJECT_STORE_BASE_URL: http://minio:9000
+      OBJECT_STORE_ACCESS_KEY_ID: ${OBJECT_STORE_ACCESS_KEY}
+      OBJECT_STORE_SECRET_ACCESS_KEY: ${OBJECT_STORE_SECRET_KEY}
+      OBJECT_STORE_BUCKET: packets
+      OBJECT_STORE_REGION: us-east-1
+
+      # 内置镜像仓库
+      DEPLOY_REGISTRY_HOST: ${REGISTRY_HOST:-localhost:5000}
+      DEPLOY_REGISTRY_USERNAME: ${REGISTRY_USERNAME:-registry-user}
+      DEPLOY_REGISTRY_PASSWORD: ${REGISTRY_PASSWORD}
+
+      # 使用 ClickHouse 存储日志（推荐）
+      EVENT_REPOSITORY_DEFAULT_STORE: clickhouse_v2
+      CLICKHOUSE_URL: http://default:${CLICKHOUSE_PASSWORD:-clickhouse123}@clickhouse:8123?secure=false
+
+      # 邮件（Magic Link 登录用，选填其中一种）
+      # --- 使用 Resend ---
+      # EMAIL_TRANSPORT: resend
+      # FROM_EMAIL: noreply@你的域名
+      # REPLY_TO_EMAIL: noreply@你的域名
+      # RESEND_API_KEY: re_xxxxxxxxxx
+      # --- 使用 SMTP ---
+      # EMAIL_TRANSPORT: smtp
+      # FROM_EMAIL: noreply@你的域名
+      # SMTP_HOST: smtp.xxx.com
+      # SMTP_PORT: 587
+      # SMTP_SECURE: "false"
+      # SMTP_USER: 你的邮箱
+      # SMTP_PASSWORD: 你的密码
+
+      # GitHub OAuth（可选）
+      # AUTH_GITHUB_CLIENT_ID: 你的client_id
+      # AUTH_GITHUB_CLIENT_SECRET: 你的client_secret
+
+      # Google OAuth（可选）
+      # AUTH_GOOGLE_CLIENT_ID: 你的client_id.apps.googleusercontent.com
+      # AUTH_GOOGLE_CLIENT_SECRET: 你的client_secret
+
+      # 限制注册邮箱（可选，正则匹配）
+      # WHITELISTED_EMAILS: "^your@email\\.com$"
+
+      # 管理员邮箱（可选）
+      # ADMIN_EMAILS: "^admin@your\\.domain\\.com$"
+
+      # 锁定版本
+      TRIGGER_IMAGE_TAG: ${TRIGGER_IMAGE_TAG:-v4.4.4}
+
+      # Managed Worker Secret（需与 supervisor 匹配）
+      MANAGED_WORKER_SECRET: ${MANAGED_WORKER_SECRET:-managed-secret}
+
+      # 关闭遥测
+      TRIGGER_TELEMETRY_DISABLED: "1"
+
+      # Bootstrap（首次启动自动创建 worker group 并写入 token 到共享卷）
+      TRIGGER_BOOTSTRAP_ENABLED: "1"
+      TRIGGER_BOOTSTRAP_WORKER_GROUP_NAME: default
+      TRIGGER_BOOTSTRAP_WORKER_TOKEN_PATH: /home/node/shared/worker_token
+
+  # ============================================================
+  # Worker（Supervisor，任务调度执行）
+  # ============================================================
+
+  worker:
+    image: ghcr.io/triggerdotdev/supervisor:${TRIGGER_IMAGE_TAG:-v4.4.4}
+    restart: unless-stopped
+    networks: [trigger-net]
+    cpus: "3"
+    mem_limit: 3g
+    depends_on:
+      webapp:
+        condition: service_started
+      docker-proxy:
+        condition: service_started
+    volumes:
+      - shared_data:/home/node/shared
+      - docker_certs:/certs
+    environment:
+      # Webapp API 地址（内网）
+      TRIGGER_API_URL: http://webapp:3000
+
+      # Worker Token（由 webapp bootstrap 自动生成的 token）
+      TRIGGER_WORKER_TOKEN: ${TRIGGER_WORKER_TOKEN:-tr_wgt_VIxNh3o4oxvpAScXb2PD3dxmHnfWlsbonMHTL47m}
+
+      # Docker Proxy（安全访问 Docker）
+      DOCKER_HOST: tcp://docker-proxy:2375
+
+      # Managed Worker Secret（需与 webapp 匹配）
+      MANAGED_WORKER_SECRET: ${MANAGED_WORKER_SECRET:-managed-secret}
+
+      # OTel 端点（指向 webapp 的 /otel 路径）
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://webapp:3000/otel
+
+      # 镜像仓库（拉取任务镜像用）
+      REGISTRY_HOST: ${REGISTRY_HOST:-localhost:5000}
+      REGISTRY_USERNAME: ${REGISTRY_USERNAME:-registry-user}
+      REGISTRY_PASSWORD: ${REGISTRY_PASSWORD}
+
+      # 关闭遥测
+      TRIGGER_TELEMETRY_DISABLED: "1"
+
