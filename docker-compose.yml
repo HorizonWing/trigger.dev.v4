@@ -235,34 +235,37 @@ services:
       EVENT_REPOSITORY_DEFAULT_STORE: clickhouse_v2
       CLICKHOUSE_URL: http://default:${CLICKHOUSE_PASSWORD:-clickhouse123}@clickhouse:8123?secure=false
 
-      # 邮件（Magic Link 登录用，选填其中一种）
-      # --- 使用 Resend ---
-      # EMAIL_TRANSPORT: resend
-      # FROM_EMAIL: noreply@你的域名
-      # REPLY_TO_EMAIL: noreply@你的域名
-      # RESEND_API_KEY: re_xxxxxxxxxx
-      # --- 使用 SMTP ---
-      # EMAIL_TRANSPORT: smtp
-      # FROM_EMAIL: noreply@你的域名
-      # SMTP_HOST: smtp.xxx.com
-      # SMTP_PORT: 587
-      # SMTP_SECURE: "false"
-      # SMTP_USER: 你的邮箱
-      # SMTP_PASSWORD: 你的密码
+      # 邮件（Magic Link 登录用，从 .env 读取，不配置则魔法链接只在日志里显示）
+      EMAIL_TRANSPORT: ${EMAIL_TRANSPORT:-}
+      FROM_EMAIL: ${FROM_EMAIL:-}
+      REPLY_TO_EMAIL: ${REPLY_TO_EMAIL:-}
+      RESEND_API_KEY: ${RESEND_API_KEY:-}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-}
+      SMTP_SECURE: ${SMTP_SECURE:-}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      AWS_REGION: ${AWS_REGION:-}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
 
-      # GitHub OAuth（可选）
-      # AUTH_GITHUB_CLIENT_ID: 你的client_id
-      # AUTH_GITHUB_CLIENT_SECRET: 你的client_secret
+      # GitHub OAuth（从 .env 读取，不配置则不启用）
+      AUTH_GITHUB_CLIENT_ID: ${AUTH_GITHUB_CLIENT_ID:-}
+      AUTH_GITHUB_CLIENT_SECRET: ${AUTH_GITHUB_CLIENT_SECRET:-}
 
-      # Google OAuth（可选）
-      # AUTH_GOOGLE_CLIENT_ID: 你的client_id.apps.googleusercontent.com
-      # AUTH_GOOGLE_CLIENT_SECRET: 你的client_secret
+      # Google OAuth（从 .env 读取，不配置则不启用）
+      AUTH_GOOGLE_CLIENT_ID: ${AUTH_GOOGLE_CLIENT_ID:-}
+      AUTH_GOOGLE_CLIENT_SECRET: ${AUTH_GOOGLE_CLIENT_SECRET:-}
 
-      # 限制注册邮箱（可选，正则匹配）
-      # WHITELISTED_EMAILS: "^your@email\\.com$"
+      # 限制注册邮箱（从 .env 读取）
+      WHITELISTED_EMAILS: ${WHITELISTED_EMAILS:-}
 
-      # 管理员邮箱（可选）
-      # ADMIN_EMAILS: "^admin@your\\.domain\\.com$"
+      # 管理员邮箱（从 .env 读取）
+      ADMIN_EMAILS: ${ADMIN_EMAILS:-}
+
+      # 任务队列限制（从 .env 读取）
+      MAXIMUM_DEPLOYED_QUEUE_SIZE: ${MAXIMUM_DEPLOYED_QUEUE_SIZE:-500000}
+      MAXIMUM_DEV_QUEUE_SIZE: ${MAXIMUM_DEV_QUEUE_SIZE:-100000}
 
       # 锁定版本
       TRIGGER_IMAGE_TAG: ${TRIGGER_IMAGE_TAG:-v4.4.4}
