@@ -296,12 +296,29 @@ services:
     volumes:
       - shared_data:/home/node/shared
       - docker_certs:/certs
+    entrypoint: >
+      /bin/sh -c "
+        echo 'Waiting for worker token from webapp bootstrap...';
+        for i in $$(seq 1 120); do
+          if [ -f /home/node/shared/worker_token ] && [ -s /home/node/shared/worker_token ]; then
+            export TRIGGER_WORKER_TOKEN=$$(cat /home/node/shared/worker_token);
+            echo 'Worker token loaded successfully';
+            break;
+          fi;
+          sleep 1;
+        done;
+        if [ -z \"$$TRIGGER_WORKER_TOKEN\" ]; then
+          echo 'ERROR: Timed out waiting for worker token';
+          exit 1;
+        fi;
+        exec node dist/index.js;
+      "
     environment:
       # Webapp API 地址（内网）
       TRIGGER_API_URL: http://webapp:3000
 
-      # Worker Token（由 webapp bootstrap 自动生成的 token）
-      TRIGGER_WORKER_TOKEN: ${TRIGGER_WORKER_TOKEN:-tr_wgt_VIxNh3o4oxvpAScXb2PD3dxmHnfWlsbonMHTL47m}
+      # Worker Token（由 entrypoint 从共享卷读取，无需手动配置）
+      # TRIGGER_WORKER_TOKEN 由 entrypoint 自动注入
 
       # Docker Proxy（安全访问 Docker）
       DOCKER_HOST: tcp://docker-proxy:2375
