@@ -27,6 +27,20 @@ services:
       - shared_data:/home/node/shared
     command: chown -R 1000:1000 /home/node/shared
 
+  minio-vol-init:
+    image: busybox:1
+    restart: "no"
+    volumes:
+      - minio_data:/data
+    command: chown -R 1000:1000 /data
+
+  clickhouse-vol-init:
+    image: busybox:1
+    restart: "no"
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+    command: chown -R 101:101 /var/lib/clickhouse
+
   # ============================================================
   # 基础服务
   # ============================================================
@@ -109,6 +123,9 @@ services:
     image: minio/minio:latest
     restart: unless-stopped
     networks: [trigger-net]
+    depends_on:
+      minio-vol-init:
+        condition: service_completed_successfully
     ports:
       - "9002:9000"
       - "9003:9001"  # MinIO 管理界面
@@ -145,6 +162,9 @@ services:
     image: clickhouse/clickhouse-server:25.5-alpine
     restart: unless-stopped
     networks: [trigger-net]
+    depends_on:
+      clickhouse-vol-init:
+        condition: service_completed_successfully
     environment:
       CLICKHOUSE_USER: ${CLICKHOUSE_USER:-default}
       CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-clickhouse123}
