@@ -92,3 +92,32 @@ npx trigger.dev@latest update
 4. 上传 registry/auth.htpasswd 或通过 Volumes 挂载
 5. 点击 Deploy
 
+以下是 Trigger.dev v4 Self-hosting Limits 环境变量的完整中文翻译：
+
+## 任务 Payload 限制
+
+| 环境变量 | 必填 | 默认值 | 说明 |
+|---|---|---|---|
+| `TASK_PAYLOAD_OFFLOAD_THRESHOLD` | 否 | 524288（512KB） | 任务 Payload 超过此大小后将卸载至 S3 |
+| `TASK_PAYLOAD_MAXIMUM_SIZE` | 否 | 3145728（3MB） | 单个任务 Payload 的最大体积 |
+| `BATCH_TASK_PAYLOAD_MAXIMUM_SIZE` | 否 | 1000000（1MB） | 批量任务 Payload 的最大体积 |
+| `TASK_RUN_METADATA_MAXIMUM_SIZE` | 否 | 262144（256KB） | 任务 Run 元数据的最大体积 |
+| `MAX_BATCH_V2_TRIGGER_ITEMS` | 否 | 500 | 单次批量触发的最大条目数（旧版 v2 API） |
+| `STREAMING_BATCH_MAX_ITEMS` | 否 | 1000 | 流式批量的最大条目数（v3 API，需要 SDK 4.3.1+） |
+| `STREAMING_BATCH_ITEM_MAXIMUM_SIZE` | 否 | 3145728（3MB） | 流式批量中每条条目的最大体积 |
+| `MAXIMUM_DEV_QUEUE_SIZE` | 否 | — | 开发环境队列的最大长度 |
+| `MAXIMUM_DEPLOYED_QUEUE_SIZE` | 否 | — | 生产部署队列的最大长度 |
+
+## OTel（OpenTelemetry）限制
+
+| 环境变量 | 必填 | 默认值 | 说明 |
+|---|---|---|---|
+| `TRIGGER_OTEL_SPAN_ATTRIBUTE_COUNT_LIMIT` | 否 | 1024 | Span 的最大属性数量 |
+| `TRIGGER_OTEL_LOG_ATTRIBUTE_COUNT_LIMIT` | 否 | 1024 | Log 的最大属性数量 |
+| `TRIGGER_OTEL_SPAN_ATTRIBUTE_VALUE_LENGTH_LIMIT` | 否 | 131072 | Span 属性值的最大长度 |
+| `TRIGGER_OTEL_LOG_ATTRIBUTE_VALUE_LENGTH_LIMIT` | 否 | 131072 | Log 属性值的最大长度 |
+| `TRIGGER_OTEL_SPAN_EVENT_COUNT_LIMIT` | 否 | 10 | Span 的最大事件数量 |
+| `TRIGGER_OTEL_LINK_COUNT_LIMIT` | 否 | 2 | Span 的最大 Link 数量 |
+| `TRIGGER_OTEL_ATTRIBUTE_PER_LINK_COUNT_LIMIT` | 否 | 10 | 每个 Link 的最大属性数量 |
+| `TRIGGER_OTEL_ATTRIBUTE_PER_EVENT_COUNT_LIMIT` | 否 | 10 | 每个 Event 的最大属性数量 |
+| `SERVER_OTEL_SPAN_ATTRIBUTE_VALUE_LENGTH_LIMIT` | 否 | 8192 | 服务端 OTel Span 属性值的最大长度 |
