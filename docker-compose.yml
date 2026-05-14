@@ -1,5 +1,5 @@
 # Trigger.dev v4 - 单机完整部署（适合 16C16G 服务器）
-# 包含：Webapp、Worker、PostgreSQL、Redis、Registry、MinIO、ClickHouse
+# 包含：Webapp、Worker、PostgreSQL、Redis、Registry、MinIO、ClickHouse、Electric
 
 networks:
   trigger-net:
@@ -53,6 +53,7 @@ services:
     image: postgres:16-alpine
     restart: unless-stopped
     networks: [trigger-net]
+    command: ["postgres", "-c", "wal_level=logical"]
     environment:
       POSTGRES_USER: trigger
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -76,6 +77,28 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  # ============================================================
+  # Electric（实时数据同步，前端 runs 列表依赖此服务）
+  # ============================================================
+
+  electric:
+    image: electricsql/electric:${ELECTRIC_IMAGE_TAG:-1.2.4}
+    restart: unless-stopped
+    networks: [trigger-net]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://trigger:${POSTGRES_PASSWORD}@postgres:5432/trigger
+      ELECTRIC_INSECURE: "true"
+      ELECTRIC_USAGE_REPORTING: "false"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/v1/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
   # ============================================================
   # Docker Socket Proxy（安全隔离，代替直接挂载 docker.sock）
@@ -176,6 +199,7 @@ services:
       CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-clickhouse123}
     volumes:
       - clickhouse_data:/var/lib/clickhouse
+      - ./clickhouse/override.xml:/etc/clickhouse-server/config.d/override.xml:ro
     ulimits:
       nofile:
         soft: 262144
@@ -205,6 +229,8 @@ services:
         condition: service_healthy
       clickhouse:
         condition: service_healthy
+      electric:
+        condition: service_healthy
     volumes:
       - shared_data:/home/node/shared
     environment:
@@ -226,6 +252,9 @@ services:
       LOGIN_ORIGIN: ${APP_ORIGIN}
       APP_ORIGIN: ${APP_ORIGIN}
 
+      # Electric（实时数据同步）
+      ELECTRIC_ORIGIN: http://electric:3000
+
       # 内置对象存储
       OBJECT_STORE_BASE_URL: http://minio:9000
       OBJECT_STORE_ACCESS_KEY_ID: ${OBJECT_STORE_ACCESS_KEY}
@@ -235,12 +264,19 @@ services:
 
       # 内置镜像仓库
       DEPLOY_REGISTRY_HOST: ${REGISTRY_HOST:-localhost:5000}
+      DEPLOY_REGISTRY_NAMESPACE: ${DEPLOY_REGISTRY_NAMESPACE:-trigger}
       DEPLOY_REGISTRY_USERNAME: ${REGISTRY_USERNAME:-registry-user}
       DEPLOY_REGISTRY_PASSWORD: ${REGISTRY_PASSWORD}
 
-      # 使用 ClickHouse 存储日志（推荐）
+      # ClickHouse 日志存储
       EVENT_REPOSITORY_DEFAULT_STORE: clickhouse_v2
       CLICKHOUSE_URL: http://default:${CLICKHOUSE_PASSWORD:-clickhouse123}@clickhouse:8123?secure=false
+      CLICKHOUSE_LOG_LEVEL: info
+
+      # Run Replication（将 PG run 数据复制到 ClickHouse）
+      RUN_REPLICATION_ENABLED: "1"
+      RUN_REPLICATION_CLICKHOUSE_URL: http://default:${CLICKHOUSE_PASSWORD:-clickhouse123}@clickhouse:8123
+      RUN_REPLICATION_LOG_LEVEL: info
 
       # 邮件（Magic Link 登录用，不配置则魔法链接只在日志里显示）
       # 必须为 resend / smtp / aws-ses 之一，空值会导致启动失败
@@ -336,4 +372,3 @@ services:
       timeout: 10s
       retries: 5
       start_period: 10s
-
