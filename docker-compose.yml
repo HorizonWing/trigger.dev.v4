@@ -343,7 +343,7 @@ services:
       - trigger-net
       - docker-proxy-net
     deploy:
-      replicas: ${WORKER_REPLICAS:-2}
+      replicas: ${WORKER_REPLICAS:-3}
     depends_on:
       docker-proxy:
         condition: service_healthy
