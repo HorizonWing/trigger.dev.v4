@@ -235,8 +235,9 @@ services:
       EVENT_REPOSITORY_DEFAULT_STORE: clickhouse_v2
       CLICKHOUSE_URL: http://default:${CLICKHOUSE_PASSWORD:-clickhouse123}@clickhouse:8123?secure=false
 
-      # 邮件（Magic Link 登录用，从 .env 读取，不配置则魔法链接只在日志里显示）
-      EMAIL_TRANSPORT: ${EMAIL_TRANSPORT:-}
+      # 邮件（Magic Link 登录用，不配置则魔法链接只在日志里显示）
+      # 必须为 resend / smtp / aws-ses 之一，空值会导致启动失败
+      EMAIL_TRANSPORT: ${EMAIL_TRANSPORT:-resend}
       FROM_EMAIL: ${FROM_EMAIL:-}
       REPLY_TO_EMAIL: ${REPLY_TO_EMAIL:-}
       RESEND_API_KEY: ${RESEND_API_KEY:-}
@@ -334,7 +335,15 @@ services:
       # OTel 端点（指向 webapp 的 /otel 路径）
       OTEL_EXPORTER_OTLP_ENDPOINT: http://webapp:3000/otel
 
-      # 镜像仓库（拉取任务镜像用）
+      # Docker Registry（supervisor 要求 DOCKER_REGISTRY_* 变量名）
+      DOCKER_REGISTRY_URL: https://${REGISTRY_HOST:-registry:5000}
+      DOCKER_REGISTRY_USERNAME: ${REGISTRY_USERNAME:-registry-user}
+      DOCKER_REGISTRY_PASSWORD: ${REGISTRY_PASSWORD}
+
+      # Runner 容器网络（加入 trigger-net 以访问 webapp）
+      DOCKER_RUNNER_NETWORKS: triggerdevv4_trigger-net
+
+      # 镜像仓库（兼容旧变量，webapp 端使用）
       REGISTRY_HOST: ${REGISTRY_HOST:-localhost:5000}
       REGISTRY_USERNAME: ${REGISTRY_USERNAME:-registry-user}
       REGISTRY_PASSWORD: ${REGISTRY_PASSWORD}
