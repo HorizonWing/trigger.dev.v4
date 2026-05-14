@@ -311,7 +311,7 @@ services:
           echo 'ERROR: Timed out waiting for worker token';
           exit 1;
         fi;
-        exec pnpm start;
+        exec /usr/bin/dumb-init -- pnpm run --filter supervisor start;
       "
     environment:
       # Webapp API 地址（内网）
