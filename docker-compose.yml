@@ -17,6 +17,17 @@ volumes:
 services:
 
   # ============================================================
+  # 共享卷权限初始化（确保 node 用户可写）
+  # ============================================================
+
+  shared-init:
+    image: busybox:1
+    restart: "no"
+    volumes:
+      - shared_data:/home/node/shared
+    command: chown -R 1000:1000 /home/node/shared
+
+  # ============================================================
   # 基础服务
   # ============================================================
 
@@ -160,6 +171,8 @@ services:
     ports:
       - "8030:3000"
     depends_on:
+      shared-init:
+        condition: service_completed_successfully
       postgres:
         condition: service_healthy
       redis:
