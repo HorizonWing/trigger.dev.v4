@@ -311,7 +311,7 @@ services:
           echo 'ERROR: Timed out waiting for worker token';
           exit 1;
         fi;
-        exec node dist/index.js;
+        exec pnpm start;
       "
     environment:
       # Webapp API 地址（内网）
