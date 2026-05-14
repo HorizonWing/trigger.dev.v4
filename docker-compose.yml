@@ -4,6 +4,7 @@
 networks:
   trigger-net:
     driver: bridge
+    name: trigger-net
 
 volumes:
   postgres_data:
@@ -341,7 +342,7 @@ services:
       DOCKER_REGISTRY_PASSWORD: ${REGISTRY_PASSWORD}
 
       # Runner 容器网络（加入 trigger-net 以访问 webapp）
-      DOCKER_RUNNER_NETWORKS: triggerdevv4_trigger-net
+      DOCKER_RUNNER_NETWORKS: trigger-net
 
       # 镜像仓库（兼容旧变量，webapp 端使用）
       REGISTRY_HOST: ${REGISTRY_HOST:-localhost:5000}
