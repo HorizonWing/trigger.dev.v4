@@ -290,7 +290,7 @@ services:
     restart: unless-stopped
     networks: [trigger-net]
     deploy:
-      replicas: ${WORKER_REPLICAS:-2}
+      replicas: ${WORKER_REPLICAS:-3}
     cpus: "3"
     mem_limit: 3g
     depends_on:
