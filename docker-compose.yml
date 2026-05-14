@@ -1,5 +1,13 @@
 # Trigger.dev v4 - 单机完整部署（适合 16C16G 服务器）
+# 基于 triggerdotdev/trigger.dev 官方 hosting/docker 配置整合
 # 包含：Webapp、Worker、PostgreSQL、Redis、Registry、MinIO、ClickHouse、Electric
+
+x-logging: &logging-config
+  driver: ${LOGGING_DRIVER:-local}
+  options:
+    max-size: ${LOGGING_MAX_SIZE:-20m}
+    max-file: ${LOGGING_MAX_FILES:-5}
+    compress: ${LOGGING_COMPRESS:-true}
 
 networks:
   trigger-net:
@@ -21,54 +29,36 @@ volumes:
 services:
 
   # ============================================================
-  # 共享卷权限初始化（确保 node 用户可写）
-  # ============================================================
-
-  shared-init:
-    image: busybox:1
-    restart: "no"
-    volumes:
-      - shared_data:/home/node/shared
-    command: chown -R 1000:1000 /home/node/shared
-
-  minio-vol-init:
-    image: busybox:1
-    restart: "no"
-    volumes:
-      - minio_data:/data
-    command: chown -R 1000:1000 /data
-
-  clickhouse-vol-init:
-    image: busybox:1
-    restart: "no"
-    volumes:
-      - clickhouse_data:/var/lib/clickhouse
-    command: chown -R 101:101 /var/lib/clickhouse
-
-  # ============================================================
-  # 基础服务
+  # PostgreSQL（主数据库）
   # ============================================================
 
   postgres:
-    image: postgres:16-alpine
-    restart: unless-stopped
+    image: postgres:${POSTGRES_IMAGE_TAG:-16-alpine}
+    restart: ${RESTART_POLICY:-unless-stopped}
+    logging: *logging-config
     networks: [trigger-net]
     command: ["postgres", "-c", "wal_level=logical"]
     environment:
-      POSTGRES_USER: trigger
+      POSTGRES_USER: ${POSTGRES_USER:-trigger}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: trigger
+      POSTGRES_DB: ${POSTGRES_DB:-trigger}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U trigger"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-trigger}"]
       interval: 10s
       timeout: 5s
       retries: 5
+      start_period: 10s
+
+  # ============================================================
+  # Redis
+  # ============================================================
 
   redis:
-    image: redis:7-alpine
-    restart: unless-stopped
+    image: redis:${REDIS_IMAGE_TAG:-7-alpine}
+    restart: ${RESTART_POLICY:-unless-stopped}
+    logging: *logging-config
     networks: [trigger-net]
     volumes:
       - redis_data:/data
@@ -77,6 +67,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+      start_period: 10s
 
   # ============================================================
   # Electric（实时数据同步，前端 runs 列表依赖此服务）
@@ -84,13 +75,14 @@ services:
 
   electric:
     image: electricsql/electric:${ELECTRIC_IMAGE_TAG:-1.2.4}
-    restart: unless-stopped
+    restart: ${RESTART_POLICY:-unless-stopped}
+    logging: *logging-config
     networks: [trigger-net]
     depends_on:
       postgres:
         condition: service_healthy
     environment:
-      DATABASE_URL: postgresql://trigger:${POSTGRES_PASSWORD}@postgres:5432/trigger
+      DATABASE_URL: postgresql://${POSTGRES_USER:-trigger}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-trigger}
       ELECTRIC_INSECURE: "true"
       ELECTRIC_USAGE_REPORTING: "false"
     healthcheck:
@@ -106,7 +98,8 @@ services:
 
   docker-proxy:
     image: tecnativa/docker-socket-proxy:latest
-    restart: unless-stopped
+    restart: ${RESTART_POLICY:-unless-stopped}
+    logging: *logging-config
     networks:
       - docker-proxy-net
     environment:
@@ -130,11 +123,12 @@ services:
   # ============================================================
 
   registry:
-    image: registry:2
-    restart: unless-stopped
+    image: registry:${REGISTRY_IMAGE_TAG:-2}
+    restart: ${RESTART_POLICY:-unless-stopped}
+    logging: *logging-config
     networks: [trigger-net]
     ports:
-      - "5000:5000"
+      - "${REGISTRY_PUBLISH_IP:-0.0.0.0}:5000:5000"
     environment:
       REGISTRY_AUTH: htpasswd
       REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
@@ -150,14 +144,12 @@ services:
 
   minio:
     image: minio/minio:latest
-    restart: unless-stopped
+    restart: ${RESTART_POLICY:-unless-stopped}
+    logging: *logging-config
     networks: [trigger-net]
-    depends_on:
-      minio-vol-init:
-        condition: service_completed_successfully
     ports:
-      - "9002:9000"
-      - "9003:9001"  # MinIO 管理界面
+      - "${MINIO_PUBLISH_IP:-0.0.0.0}:9002:9000"
+      - "${MINIO_PUBLISH_IP:-0.0.0.0}:9003:9001"
     environment:
       MINIO_ROOT_USER: ${OBJECT_STORE_ACCESS_KEY}
       MINIO_ROOT_PASSWORD: ${OBJECT_STORE_SECRET_KEY}
@@ -169,9 +161,11 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+      start_period: 10s
 
   minio-init:
     image: minio/mc:latest
+    restart: "no"
     networks: [trigger-net]
     depends_on:
       minio:
@@ -184,16 +178,14 @@ services:
       "
 
   # ============================================================
-  # ClickHouse（日志和追踪，防止 PostgreSQL 无限增长）
+  # ClickHouse（日志、追踪、Run Replication）
   # ============================================================
 
   clickhouse:
-    image: clickhouse/clickhouse-server:25.5-alpine
-    restart: unless-stopped
+    image: clickhouse/clickhouse-server:${CLICKHOUSE_IMAGE_TAG:-25.5-alpine}
+    restart: ${RESTART_POLICY:-unless-stopped}
+    logging: *logging-config
     networks: [trigger-net]
-    depends_on:
-      clickhouse-vol-init:
-        condition: service_completed_successfully
     environment:
       CLICKHOUSE_USER: ${CLICKHOUSE_USER:-default}
       CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-clickhouse123}
@@ -205,10 +197,11 @@ services:
         soft: 262144
         hard: 262144
     healthcheck:
-      test: ["CMD", "clickhouse-client", "--user", "default", "--password", "${CLICKHOUSE_PASSWORD:-clickhouse123}", "--query", "SELECT 1"]
-      interval: 30s
-      timeout: 10s
+      test: ["CMD", "clickhouse-client", "--user", "${CLICKHOUSE_USER:-default}", "--password", "${CLICKHOUSE_PASSWORD:-clickhouse123}", "--query", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
       retries: 5
+      start_period: 10s
 
   # ============================================================
   # Webapp（仪表板 + API）
@@ -216,13 +209,12 @@ services:
 
   webapp:
     image: ghcr.io/triggerdotdev/trigger.dev:${TRIGGER_IMAGE_TAG:-v4.4.4}
-    restart: unless-stopped
+    restart: ${RESTART_POLICY:-unless-stopped}
+    logging: *logging-config
     networks: [trigger-net]
     ports:
-      - "8030:3000"
+      - "${WEBAPP_PUBLISH_IP:-0.0.0.0}:8030:3000"
     depends_on:
-      shared-init:
-        condition: service_completed_successfully
       postgres:
         condition: service_healthy
       redis:
@@ -233,27 +225,38 @@ services:
         condition: service_healthy
     volumes:
       - shared_data:/home/node/shared
+    user: root
+    command: sh -c "chown -R node:node /home/node/shared && exec ./scripts/entrypoint.sh"
+    healthcheck:
+      test: ["CMD", "node", "-e", "http.get('http://localhost:3000/healthcheck', res => process.exit(res.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
     environment:
+      # 访问地址
+      APP_ORIGIN: ${APP_ORIGIN:-http://localhost:8030}
+      LOGIN_ORIGIN: ${APP_ORIGIN:-http://localhost:8030}
+      API_ORIGIN: ${APP_ORIGIN:-http://localhost:8030}
+
       # 数据库
-      DATABASE_URL: postgresql://trigger:${POSTGRES_PASSWORD}@postgres:5432/trigger
-      DIRECT_URL: postgresql://trigger:${POSTGRES_PASSWORD}@postgres:5432/trigger
-      REDIS_URL: redis://redis:6379
+      DATABASE_URL: postgresql://${POSTGRES_USER:-trigger}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-trigger}
+      DIRECT_URL: postgresql://${POSTGRES_USER:-trigger}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-trigger}
       REDIS_HOST: redis
       REDIS_PORT: 6379
       REDIS_TLS_DISABLED: "true"
 
-      # 安全密钥（必须修改）
+      # 安全密钥
       SESSION_SECRET: ${SESSION_SECRET}
       MAGIC_LINK_SECRET: ${MAGIC_LINK_SECRET}
       ENCRYPTION_KEY: ${ENCRYPTION_KEY}
-      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET}
+      MANAGED_WORKER_SECRET: ${MANAGED_WORKER_SECRET:-managed-secret}
 
-      # 访问地址（改成你的域名或 IP）
-      LOGIN_ORIGIN: ${APP_ORIGIN}
-      APP_ORIGIN: ${APP_ORIGIN}
-
-      # Electric（实时数据同步）
+      # Electric
       ELECTRIC_ORIGIN: http://electric:3000
+
+      # 日志
+      APP_LOG_LEVEL: info
 
       # 内置对象存储
       OBJECT_STORE_BASE_URL: http://minio:9000
@@ -269,18 +272,30 @@ services:
       DEPLOY_REGISTRY_PASSWORD: ${REGISTRY_PASSWORD}
 
       # ClickHouse 日志存储
-      EVENT_REPOSITORY_DEFAULT_STORE: clickhouse_v2
-      CLICKHOUSE_URL: http://default:${CLICKHOUSE_PASSWORD:-clickhouse123}@clickhouse:8123?secure=false
-      CLICKHOUSE_LOG_LEVEL: info
+      CLICKHOUSE_URL: http://${CLICKHOUSE_USER:-default}:${CLICKHOUSE_PASSWORD:-clickhouse123}@clickhouse:8123?secure=false
+      CLICKHOUSE_LOG_LEVEL: ${CLICKHOUSE_LOG_LEVEL:-info}
 
-      # Run Replication（将 PG run 数据复制到 ClickHouse）
-      RUN_REPLICATION_ENABLED: "1"
-      RUN_REPLICATION_CLICKHOUSE_URL: http://default:${CLICKHOUSE_PASSWORD:-clickhouse123}@clickhouse:8123
-      RUN_REPLICATION_LOG_LEVEL: info
+      # Run Replication（PG → ClickHouse）
+      RUN_REPLICATION_ENABLED: ${RUN_REPLICATION_ENABLED:-1}
+      RUN_REPLICATION_CLICKHOUSE_URL: http://${CLICKHOUSE_USER:-default}:${CLICKHOUSE_PASSWORD:-clickhouse123}@clickhouse:8123
+      RUN_REPLICATION_LOG_LEVEL: ${RUN_REPLICATION_LOG_LEVEL:-info}
 
-      # 邮件（Magic Link 登录用，不配置则魔法链接只在日志里显示）
-      # 必须为 resend / smtp / aws-ses 之一，空值会导致启动失败
-      EMAIL_TRANSPORT: ${EMAIL_TRANSPORT:-resend}
+      # OTEL
+      DEV_OTEL_EXPORTER_OTLP_ENDPOINT: ${DEV_OTEL_EXPORTER_OTLP_ENDPOINT:-http://localhost:8030/otel}
+
+      # 优雅关闭
+      GRACEFUL_SHUTDOWN_TIMEOUT: "1000"
+
+      # Node 内存
+      NODE_MAX_OLD_SPACE_SIZE: ${NODE_MAX_OLD_SPACE_SIZE:-}
+
+      # Bootstrap（首次启动自动创建 worker group）
+      TRIGGER_BOOTSTRAP_ENABLED: "1"
+      TRIGGER_BOOTSTRAP_WORKER_GROUP_NAME: default
+      TRIGGER_BOOTSTRAP_WORKER_TOKEN_PATH: /home/node/shared/worker_token
+
+      # 邮件（Magic Link 登录）
+      EMAIL_TRANSPORT: ${EMAIL_TRANSPORT:-}
       FROM_EMAIL: ${FROM_EMAIL:-}
       REPLY_TO_EMAIL: ${REPLY_TO_EMAIL:-}
       RESEND_API_KEY: ${RESEND_API_KEY:-}
@@ -293,37 +308,28 @@ services:
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
 
-      # GitHub OAuth（从 .env 读取，不配置则不启用）
+      # OAuth
       AUTH_GITHUB_CLIENT_ID: ${AUTH_GITHUB_CLIENT_ID:-}
       AUTH_GITHUB_CLIENT_SECRET: ${AUTH_GITHUB_CLIENT_SECRET:-}
-
-      # Google OAuth（从 .env 读取，不配置则不启用）
       AUTH_GOOGLE_CLIENT_ID: ${AUTH_GOOGLE_CLIENT_ID:-}
       AUTH_GOOGLE_CLIENT_SECRET: ${AUTH_GOOGLE_CLIENT_SECRET:-}
 
-      # 限制注册邮箱（从 .env 读取）
+      # 访问控制
       WHITELISTED_EMAILS: ${WHITELISTED_EMAILS:-}
-
-      # 管理员邮箱（从 .env 读取）
       ADMIN_EMAILS: ${ADMIN_EMAILS:-}
 
-      # 任务队列限制（从 .env 读取）
+      # 任务队列限制
       MAXIMUM_DEPLOYED_QUEUE_SIZE: ${MAXIMUM_DEPLOYED_QUEUE_SIZE:-500000}
       MAXIMUM_DEV_QUEUE_SIZE: ${MAXIMUM_DEV_QUEUE_SIZE:-100000}
 
-      # 锁定版本
+      # 版本锁定
       TRIGGER_IMAGE_TAG: ${TRIGGER_IMAGE_TAG:-v4.4.4}
 
-      # Managed Worker Secret（需与 supervisor 匹配）
-      MANAGED_WORKER_SECRET: ${MANAGED_WORKER_SECRET:-managed-secret}
-
-      # 关闭遥测
+      # 遥测
       TRIGGER_TELEMETRY_DISABLED: "1"
 
-      # Bootstrap（首次启动自动创建 worker group 并写入 token 到共享卷）
-      TRIGGER_BOOTSTRAP_ENABLED: "1"
-      TRIGGER_BOOTSTRAP_WORKER_GROUP_NAME: default
-      TRIGGER_BOOTSTRAP_WORKER_TOKEN_PATH: /home/node/shared/worker_token
+      # 内部 OTEL
+      INTERNAL_OTEL_TRACE_LOGGING_ENABLED: ${INTERNAL_OTEL_TRACE_LOGGING_ENABLED:-0}
 
   # ============================================================
   # Worker（Supervisor，任务调度执行）
@@ -331,14 +337,13 @@ services:
 
   worker:
     image: ghcr.io/triggerdotdev/supervisor:${TRIGGER_IMAGE_TAG:-v4.4.4}
-    restart: unless-stopped
+    restart: ${RESTART_POLICY:-unless-stopped}
+    logging: *logging-config
     networks:
       - trigger-net
       - docker-proxy-net
     deploy:
-      replicas: ${WORKER_REPLICAS:-3}
-    cpus: "3"
-    mem_limit: 3g
+      replicas: ${WORKER_REPLICAS:-2}
     depends_on:
       docker-proxy:
         condition: service_healthy
