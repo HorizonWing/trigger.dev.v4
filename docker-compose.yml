@@ -194,7 +194,9 @@ services:
       CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-clickhouse123}
     volumes:
       - clickhouse_data:/var/lib/clickhouse
-      - ./clickhouse/trigger-settings.xml:/etc/clickhouse-server/config.d/trigger-settings.xml:ro
+      - ./clickhouse/trigger-config.xml:/etc/clickhouse-server/config.d/trigger-config.xml:ro
+      # <profiles> 属于 users.xml，必须挂到 users.d/ 才会生效（config.d 中的 profiles 段被忽略）
+      - ./clickhouse/trigger-users.xml:/etc/clickhouse-server/users.d/trigger-users.xml:ro
     ulimits:
       nofile:
         soft: 262144

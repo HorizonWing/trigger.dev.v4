@@ -1,0 +1,370 @@
+- generic [active] [ref=f3e1]:
+  - blockquote [aria-hidden] [ref=f3e2]:
+    - heading [level=2] [ref=f3e3]: Documentation Index
+    - paragraph [ref=f3e4]:
+      - text: "Fetch the complete documentation index at:"
+      - link [ref=f3e5] [cursor=pointer]:
+        - /url: /docs/llms.txt
+        - text: /docs/llms.txt
+    - paragraph [ref=f3e6]: Use this file to discover all available pages before exploring further.
+  - generic [ref=f3e7]:
+    - link "Skip to main content" [ref=f3e8] [cursor=pointer]:
+      - /url: "#content-area"
+    - generic [ref=f3e10]:
+      - generic [ref=f3e11]:
+        - navigation "Pages" [ref=f3e12]:
+          - generic [ref=f3e13]:
+            - generic [ref=f3e14]:
+              - link "ClickHouse Documentation home page dark logo" [ref=f3e15] [cursor=pointer]:
+                - /url: /docs
+                - generic [ref=f3e16]: ClickHouse Documentation home page
+                - img "dark logo" [ref=f3e17]
+              - group "Theme preference" [ref=f3e18]:
+                - button "Switch to system theme" [ref=f3e19] [cursor=pointer]
+                - button "Switch to light theme" [ref=f3e23] [cursor=pointer]
+                - button "Switch to dark theme" [pressed] [ref=f3e30] [cursor=pointer]
+            - generic [ref=f3e33]:
+              - button "Open search" [ref=f3e35] [cursor=pointer]:
+                - generic [ref=f3e36]: Search...
+                - generic [ref=f3e41]: ⌘K
+              - button "Ask AI" [ref=f3e43] [cursor=pointer]:
+                - generic [ref=f3e48]:
+                  - text: Ask AI
+                  - generic [ref=f3e49]: · docs assistant
+                  - generic [ref=f3e50]: ⌘I
+            - generic [ref=f3e51]:
+              - generic [ref=f3e52]:
+                - heading "Get started" [level=3] [ref=f3e55]
+                - list [ref=f3e56]:
+                  - listitem [ref=f3e57]:
+                    - link "Overview" [ref=f3e58] [cursor=pointer]:
+                      - /url: /docs/get-started
+                  - listitem [ref=f3e62]:
+                    - button "Quickstarts" [ref=f3e63] [cursor=pointer]
+                  - listitem [ref=f3e68]:
+                    - button "Introduction" [expanded] [ref=f3e69] [cursor=pointer]
+                    - list [ref=f3e74]:
+                      - listitem [ref=f3e75]:
+                        - link "What is ClickHouse?" [ref=f3e76] [cursor=pointer]:
+                          - /url: /docs/get-started/about/intro
+                      - listitem [ref=f3e80]:
+                        - link "Why is ClickHouse so fast?" [ref=f3e81] [cursor=pointer]:
+                          - /url: /docs/get-started/about/why-clickhouse-is-so-fast
+                      - listitem [ref=f3e85]:
+                        - link "Why is ClickHouse unique?" [ref=f3e86] [cursor=pointer]:
+                          - /url: /docs/get-started/about/distinctive-features
+                  - listitem [ref=f3e90]:
+                    - button "Use cases" [expanded] [ref=f3e91] [cursor=pointer]
+                    - list [ref=f3e96]:
+                      - listitem [ref=f3e97]:
+                        - link "Overview" [ref=f3e98] [cursor=pointer]:
+                          - /url: /docs/get-started/use-cases/overview
+                      - listitem [ref=f3e102]:
+                        - link "Choose a service" [ref=f3e103] [cursor=pointer]:
+                          - /url: /docs/get-started/use-cases/choosing-a-service
+                      - listitem [ref=f3e107]:
+                        - link "Real-time analytics" [ref=f3e108] [cursor=pointer]:
+                          - /url: /docs/get-started/use-cases/real-time-analytics
+                      - listitem [ref=f3e112]:
+                        - link "Observability" [ref=f3e113] [cursor=pointer]:
+                          - /url: /docs/get-started/use-cases/observability
+                      - listitem [ref=f3e117]:
+                        - link "Data warehousing" [ref=f3e118] [cursor=pointer]:
+                          - /url: /docs/get-started/use-cases/data-warehousing
+                      - listitem [ref=f3e122]:
+                        - link "Agentic analytics" [ref=f3e123] [cursor=pointer]:
+                          - /url: /docs/get-started/use-cases/agentic-analytics
+                  - listitem [ref=f3e127]:
+                    - link "Deployment modes" [ref=f3e128] [cursor=pointer]:
+                      - /url: /docs/get-started/about/deployment-modes
+              - generic [ref=f3e132]:
+                - heading "Setup" [level=3] [ref=f3e135]
+                - list [ref=f3e136]:
+                  - listitem [ref=f3e137]:
+                    - link "Install" [ref=f3e138] [cursor=pointer]:
+                      - /url: /docs/get-started/setup/install
+                  - listitem [ref=f3e142]:
+                    - link "Cloud quickstart" [ref=f3e143] [cursor=pointer]:
+                      - /url: /docs/get-started/setup/cloud
+                  - listitem [ref=f3e147]:
+                    - button "Self-managed" [expanded] [ref=f3e148] [cursor=pointer]
+                    - list [ref=f3e153]:
+                      - listitem [ref=f3e154]:
+                        - link "Overview" [ref=f3e155] [cursor=pointer]:
+                          - /url: /docs/get-started/setup/self-managed/overview
+                      - listitem [ref=f3e159]:
+                        - button "Local development" [ref=f3e160] [cursor=pointer]
+                      - listitem [ref=f3e165]:
+                        - button "Production server" [ref=f3e166] [cursor=pointer]
+              - generic [ref=f3e171]:
+                - heading "Sample datasets" [level=3] [ref=f3e174]
+                - list [ref=f3e175]:
+                  - listitem [ref=f3e176]:
+                    - link "Overview" [ref=f3e177] [cursor=pointer]:
+                      - /url: /docs/get-started/sample-datasets
+                  - listitem [ref=f3e181]:
+                    - link "ClickHouse playground" [ref=f3e182] [cursor=pointer]:
+                      - /url: /docs/get-started/sample-datasets/playground
+                  - listitem [ref=f3e186]:
+                    - button "Benchmarks" [ref=f3e187] [cursor=pointer]
+                  - listitem [ref=f3e192]:
+                    - button "Vector search & embeddings" [ref=f3e193] [cursor=pointer]
+                  - listitem [ref=f3e198]:
+                    - button "Web & social analytics" [ref=f3e199] [cursor=pointer]
+                  - listitem [ref=f3e204]:
+                    - button "Geo & location" [ref=f3e205] [cursor=pointer]
+                  - listitem [ref=f3e210]:
+                    - button "Time series & sensors" [ref=f3e211] [cursor=pointer]
+                  - listitem [ref=f3e216]:
+                    - button "Public records & open data" [ref=f3e217] [cursor=pointer]
+              - generic [ref=f3e222]:
+                - heading "Migrate" [level=3] [ref=f3e225]
+                - list [ref=f3e226]:
+                  - listitem [ref=f3e227]:
+                    - link "Overview" [ref=f3e228] [cursor=pointer]:
+                      - /url: /docs/get-started/migrate/overview
+                  - listitem [ref=f3e232]:
+                    - button "PostgreSQL" [ref=f3e233] [cursor=pointer]
+                  - listitem [ref=f3e238]:
+                    - button "BigQuery" [ref=f3e239] [cursor=pointer]
+                  - listitem [ref=f3e244]:
+                    - button "Snowflake" [ref=f3e245] [cursor=pointer]
+                  - listitem [ref=f3e250]:
+                    - button "Elasticsearch" [ref=f3e251] [cursor=pointer]
+                  - listitem [ref=f3e256]:
+                    - button "Redshift" [ref=f3e257] [cursor=pointer]
+                  - listitem [ref=f3e262]:
+                    - button "OSS to Cloud" [ref=f3e263] [cursor=pointer]
+                  - listitem [ref=f3e268]:
+                    - button "Other methods" [ref=f3e269] [cursor=pointer]
+          - list [ref=f3e274]:
+            - listitem [ref=f3e275]:
+              - button "English" [ref=f3e277] [cursor=pointer]
+        - generic [ref=f3e281]:
+          - generic [ref=f3e282]:
+            - link "Home" [ref=f3e283] [cursor=pointer]:
+              - /url: /docs
+            - button "Database" [ref=f3e285] [cursor=pointer]
+            - button "Solutions" [ref=f3e290] [cursor=pointer]
+            - button "Integrations" [ref=f3e295] [cursor=pointer]
+            - button "Resources" [ref=f3e300] [cursor=pointer]
+          - generic [ref=f3e305]:
+            - link "50.5k" [ref=f3e306] [cursor=pointer]:
+              - /url: https://github.com/ClickHouse/ClickHouse
+            - link "Sign in" [ref=f3e310] [cursor=pointer]:
+              - /url: https://console.clickhouse.cloud/signIn?loc=docs-nav-signIn-cta&glxid=42dccf60-46fe-4da6-b99e-1094eb3059ba&pagePath=%2Fdocs%2Fsearch&origPath=%2Fdocs%2Fsearch&utm_ga=GA1.1.1050419392.1792299550
+            - link "Get Started" [ref=f3e311] [cursor=pointer]:
+              - /url: https://clickhouse.cloud/signUp?loc=docs-nav-signUp-cta&glxid=42dccf60-46fe-4da6-b99e-1094eb3059ba&pagePath=%2Fdocs%2Fsearch&origPath=%2Fdocs%2Fsearch&utm_ga=GA1.1.1050419392.1792299550
+        - main [ref=f3e312]:
+          - generic [ref=f3e313]:
+            - generic [ref=f3e317]:
+              - heading "Search" [level=1] [ref=f3e318]
+              - button "Ask AI about Search" [ref=f3e319] [cursor=pointer]:
+                - generic [ref=f3e324]: Ask about this page
+            - generic [ref=f3e325]:
+              - generic [ref=f3e326]: Search across ClickHouse documentation and other ClickHouse resources.
+              - generic [ref=f3e334]:
+                - combobox [expanded] [ref=f3e338]
+                - generic "Suggestions":
+                  - tabpanel "Search results" [ref=f3e341]
+            - generic [ref=f3e343]:
+              - paragraph [ref=f3e344]: Was this page helpful?
+              - generic [ref=f3e345]:
+                - generic [ref=f3e346]:
+                  - button "Yes" [ref=f3e347] [cursor=pointer]
+                  - button "No" [ref=f3e352] [cursor=pointer]
+                - generic [ref=f3e357]:
+                  - link "Suggest edits" [ref=f3e358] [cursor=pointer]:
+                    - /url: https://github.com/clickhouse/clickhouse/edit/master/docs/search.mdx
+                  - link "Raise issue" [ref=f3e364] [cursor=pointer]:
+                    - /url: https://github.com/ClickHouse/ClickHouse/issues/new?template=60_documentation-issue.yaml&page=%2Fsearch
+          - generic [ref=f3e372]:
+            - button "Copy page" [ref=f3e373] [cursor=pointer]
+            - button "View as Markdown" [ref=f3e378] [cursor=pointer]
+            - button "Download PDF" [ref=f3e387] [cursor=pointer]
+            - button "Set up the ClickHouse documentation MCP server" [ref=f3e392] [cursor=pointer]
+      - contentinfo [ref=f3e398]:
+        - generic [ref=f3e399]:
+          - generic [ref=f3e400]:
+            - generic [ref=f3e401]:
+              - generic [ref=f3e402]:
+                - heading "Product" [level=3] [ref=f3e403]
+                - list [ref=f3e404]:
+                  - listitem [ref=f3e405]:
+                    - link "ClickHouse Cloud" [ref=f3e406] [cursor=pointer]:
+                      - /url: https://clickhouse.com/cloud
+                  - listitem [ref=f3e407]:
+                    - link "Bring Your Own Cloud" [ref=f3e408] [cursor=pointer]:
+                      - /url: https://clickhouse.com/cloud/bring-your-own-cloud
+                  - listitem [ref=f3e409]:
+                    - link "Postgres managed by ClickHouse" [ref=f3e410] [cursor=pointer]:
+                      - /url: https://clickhouse.com/cloud/postgres
+                  - listitem [ref=f3e411]:
+                    - link "Managed ClickStack" [ref=f3e412] [cursor=pointer]:
+                      - /url: https://clickhouse.com/cloud/clickstack
+                  - listitem [ref=f3e413]:
+                    - link "ClickHouse" [ref=f3e414] [cursor=pointer]:
+                      - /url: https://clickhouse.com/clickhouse
+                  - listitem [ref=f3e415]:
+                    - link "ClickStack" [ref=f3e416] [cursor=pointer]:
+                      - /url: https://clickhouse.com/clickstack
+                  - listitem [ref=f3e417]:
+                    - link "Agentic Data Stack" [ref=f3e418] [cursor=pointer]:
+                      - /url: https://clickhouse.com/ai
+                  - listitem [ref=f3e419]:
+                    - link "ClickHouse Government" [ref=f3e420] [cursor=pointer]:
+                      - /url: https://clickhouse.com/government
+                  - listitem [ref=f3e421]:
+                    - link "ClickHouse Keeper" [ref=f3e422] [cursor=pointer]:
+                      - /url: https://clickhouse.com/clickhouse/keeper
+                  - listitem [ref=f3e423]:
+                    - link "ClickPipes" [ref=f3e424] [cursor=pointer]:
+                      - /url: https://clickhouse.com/cloud/clickpipes
+                  - listitem [ref=f3e425]:
+                    - link "Integrations" [ref=f3e426] [cursor=pointer]:
+                      - /url: https://clickhouse.com/integrations
+                  - listitem [ref=f3e427]:
+                    - link "chDB" [ref=f3e428] [cursor=pointer]:
+                      - /url: https://clickhouse.com/chdb
+                  - listitem [ref=f3e429]:
+                    - link "Pricing" [ref=f3e430] [cursor=pointer]:
+                      - /url: https://clickhouse.com/pricing
+              - generic [ref=f3e431]:
+                - heading "Resources" [level=3] [ref=f3e432]
+                - list [ref=f3e433]:
+                  - listitem [ref=f3e434]:
+                    - link "Documentation" [ref=f3e435] [cursor=pointer]:
+                      - /url: https://clickhouse.com/docs
+                  - listitem [ref=f3e436]:
+                    - link "Trust Center" [ref=f3e437] [cursor=pointer]:
+                      - /url: https://trust.clickhouse.com
+                  - listitem [ref=f3e438]:
+                    - link "Training" [ref=f3e439] [cursor=pointer]:
+                      - /url: https://clickhouse.com/learn
+                  - listitem [ref=f3e440]:
+                    - link "Support" [ref=f3e441] [cursor=pointer]:
+                      - /url: https://clickhouse.com/support/program
+                  - listitem [ref=f3e442]:
+                    - link "Benchmarks" [ref=f3e443] [cursor=pointer]:
+                      - /url: https://clickhouse.com/benchmarks
+                  - listitem [ref=f3e444]:
+                    - link "Use Cases" [ref=f3e445] [cursor=pointer]:
+                      - /url: https://clickhouse.com/use-cases
+                  - listitem [ref=f3e446]:
+                    - link "Videos" [ref=f3e447] [cursor=pointer]:
+                      - /url: https://clickhouse.com/videos
+                  - listitem [ref=f3e448]:
+                    - link "Demos" [ref=f3e449] [cursor=pointer]:
+                      - /url: https://clickhouse.com/demos
+                  - listitem [ref=f3e450]:
+                    - link "Presentations" [ref=f3e451] [cursor=pointer]:
+                      - /url: https://presentations.clickhouse.com/
+                  - listitem [ref=f3e452]:
+                    - link "Real-time Data Warehouse" [ref=f3e453] [cursor=pointer]:
+                      - /url: https://clickhouse.com/real-time-data-warehouse
+                  - listitem [ref=f3e454]:
+                    - link "Engineering Resources" [ref=f3e455] [cursor=pointer]:
+                      - /url: https://clickhouse.com/resources/engineering
+              - generic [ref=f3e456]:
+                - heading "Company" [level=3] [ref=f3e457]
+                - list [ref=f3e458]:
+                  - listitem [ref=f3e459]:
+                    - link "Blog" [ref=f3e460] [cursor=pointer]:
+                      - /url: https://clickhouse.com/blog
+                  - listitem [ref=f3e461]:
+                    - link "Our Story" [ref=f3e462] [cursor=pointer]:
+                      - /url: https://clickhouse.com/company/our-story
+                  - listitem [ref=f3e463]:
+                    - link "Careers" [ref=f3e464] [cursor=pointer]:
+                      - /url: https://clickhouse.com/company/careers
+                  - listitem [ref=f3e465]:
+                    - link "Contact Us" [ref=f3e466] [cursor=pointer]:
+                      - /url: https://clickhouse.com/company/contact
+                  - listitem [ref=f3e467]:
+                    - link "Events" [ref=f3e468] [cursor=pointer]:
+                      - /url: https://clickhouse.com/company/events
+                  - listitem [ref=f3e469]:
+                    - link "News" [ref=f3e470] [cursor=pointer]:
+                      - /url: https://clickhouse.com/company/news
+                  - listitem [ref=f3e471]:
+                    - link "Media" [ref=f3e472] [cursor=pointer]:
+                      - /url: https://clickhouse.com/media
+              - generic [ref=f3e473]:
+                - heading "Join our community" [level=3] [ref=f3e474]
+                - list [ref=f3e475]:
+                  - listitem [ref=f3e476]:
+                    - link "GitHub" [ref=f3e477] [cursor=pointer]:
+                      - /url: https://github.com/ClickHouse/ClickHouse
+                  - listitem [ref=f3e478]:
+                    - link "Slack" [ref=f3e479] [cursor=pointer]:
+                      - /url: https://clickhouse.com/slack
+                  - listitem [ref=f3e480]:
+                    - link "LinkedIn" [ref=f3e481] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/clickhouseinc
+                  - listitem [ref=f3e482]:
+                    - link "X" [ref=f3e483] [cursor=pointer]:
+                      - /url: https://x.com/ClickHouseDB
+                  - listitem [ref=f3e484]:
+                    - link "Bluesky" [ref=f3e485] [cursor=pointer]:
+                      - /url: https://bsky.app/profile/clickhouse.com
+                  - listitem [ref=f3e486]:
+                    - link "Telegram" [ref=f3e487] [cursor=pointer]:
+                      - /url: https://telegram.me/clickhouse_en
+                  - listitem [ref=f3e488]:
+                    - link "Meetup" [ref=f3e489] [cursor=pointer]:
+                      - /url: https://www.meetup.com/pro/clickhouse
+              - generic [ref=f3e490]:
+                - heading "Comparisons" [level=3] [ref=f3e491]
+                - list [ref=f3e492]:
+                  - listitem [ref=f3e493]:
+                    - link "BigQuery" [ref=f3e494] [cursor=pointer]:
+                      - /url: https://clickhouse.com/comparison/bigquery
+                  - listitem [ref=f3e495]:
+                    - link "PostgreSQL" [ref=f3e496] [cursor=pointer]:
+                      - /url: https://clickhouse.com/comparison/postgresql
+                  - listitem [ref=f3e497]:
+                    - link "Redshift" [ref=f3e498] [cursor=pointer]:
+                      - /url: https://clickhouse.com/comparison/redshift
+                  - listitem [ref=f3e499]:
+                    - link "Snowflake" [ref=f3e500] [cursor=pointer]:
+                      - /url: https://clickhouse.com/comparison/snowflake
+                  - listitem [ref=f3e501]:
+                    - link "Elastic" [ref=f3e502] [cursor=pointer]:
+                      - /url: https://clickhouse.com/comparison/elastic-for-observability
+                  - listitem [ref=f3e503]:
+                    - link "Splunk" [ref=f3e504] [cursor=pointer]:
+                      - /url: https://clickhouse.com/comparison/splunk-for-observability
+                  - listitem [ref=f3e505]:
+                    - link "OpenSearch" [ref=f3e506] [cursor=pointer]:
+                      - /url: https://clickhouse.com/comparison/opensearch-for-observability
+                - heading "Partners" [level=3] [ref=f3e507]
+                - list [ref=f3e508]:
+                  - listitem [ref=f3e509]:
+                    - link "AWS" [ref=f3e510] [cursor=pointer]:
+                      - /url: https://clickhouse.com/partners/aws
+                  - listitem [ref=f3e511]:
+                    - link "Azure" [ref=f3e512] [cursor=pointer]:
+                      - /url: https://clickhouse.com/partners/azure
+            - link "Star us on Github" [ref=f3e523] [cursor=pointer]:
+              - /url: https://github.com/ClickHouse/ClickHouse
+          - generic [ref=f3e527]:
+            - generic [ref=f3e528]: © 2026 ClickHouse, Inc. HQ in the Bay Area, CA and Amsterdam, NL.
+            - generic [ref=f3e529]:
+              - link "Trademark" [ref=f3e530] [cursor=pointer]:
+                - /url: https://clickhouse.com/legal/trademark-policy
+              - link "Privacy" [ref=f3e531] [cursor=pointer]:
+                - /url: https://clickhouse.com/legal/privacy-policy
+              - link "Security" [ref=f3e532] [cursor=pointer]:
+                - /url: https://trust.clickhouse.com/
+              - link "Legal" [ref=f3e533] [cursor=pointer]:
+                - /url: https://clickhouse.com/legal
+              - link "Cookie Policy" [ref=f3e534] [cursor=pointer]:
+                - /url: https://clickhouse.com/legal/cookie-policy
+  - region "ClickHouse web terminal" [ref=f3e535]:
+    - separator "Resize web terminal" [ref=f3e536]
+    - generic [ref=f3e537]:
+      - button "ClickHouse terminal ~" [ref=f3e538] [cursor=pointer]:
+        - generic [ref=f3e542]: ClickHouse terminal
+        - generic [ref=f3e543]: ~
+      - button "Open web terminal" [ref=f3e544] [cursor=pointer]
+  - alert [ref=f3e547]

@@ -1,0 +1,13 @@
+<clickhouse>
+    <profiles>
+        <default>
+            <max_block_size>8192</max_block_size>
+            <max_download_threads>1</max_download_threads>
+            <input_format_parallel_parsing>0</input_format_parallel_parsing>
+            <output_format_parallel_formatting>0</output_format_parallel_formatting>
+            <!-- trigger.dev v4.7.x 的 text 全文索引（迁移 040）依赖此开关（ClickHouse >= 25.10）
+                 注意：<profiles> 属于 users.xml，必须放在 users.d/，放 config.d/ 会被静默忽略 -->
+            <enable_full_text_index>1</enable_full_text_index>
+        </default>
+    </profiles>
+</clickhouse>

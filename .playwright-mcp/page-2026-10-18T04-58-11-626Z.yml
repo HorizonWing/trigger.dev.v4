@@ -1,0 +1,10 @@
+- dialog "cookieconsent" [ref=f1e1]:
+  - generic [ref=f1e3]:
+    - text: This website uses cookies to ensure you get the best experience on our website.
+    - link "Learn more visit this link to learn more about cookies. Opens in new window" [ref=f1e4] [cursor=pointer]:
+      - /url: https://clickhouse.com/legal/cookie-policy
+      - text: Learn more
+  - generic [ref=f1e5]:
+    - button "Allow cookies" [ref=f1e6] [cursor=pointer]
+    - button "Dismiss" [ref=f1e7] [cursor=pointer]
+    - button "Cookie preferences" [ref=f1e8] [cursor=pointer]

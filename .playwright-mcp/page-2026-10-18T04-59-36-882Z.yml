@@ -1,0 +1,1765 @@
+- generic [ref=f18e1]:
+  - blockquote [aria-hidden] [ref=f18e2]:
+    - heading [level=2] [ref=f18e3]: Documentation Index
+    - paragraph [ref=f18e4]:
+      - text: "Fetch the complete documentation index at:"
+      - link [ref=f18e5] [cursor=pointer]:
+        - /url: /docs/llms.txt
+        - text: /docs/llms.txt
+    - paragraph [ref=f18e6]: Use this file to discover all available pages before exploring further.
+  - generic [ref=f18e7]:
+    - link "Skip to main content" [ref=f18e8] [cursor=pointer]:
+      - /url: "#content-area"
+    - generic [ref=f18e10]:
+      - generic [ref=f18e11]:
+        - navigation "Pages" [ref=f18e12]:
+          - generic [ref=f18e13]:
+            - generic [ref=f18e14]:
+              - link "ClickHouse Documentation home page dark logo" [ref=f18e15] [cursor=pointer]:
+                - /url: /docs
+                - generic [ref=f18e16]: ClickHouse Documentation home page
+                - img "dark logo" [ref=f18e17]
+              - group "Theme preference" [ref=f18e18]:
+                - button "Switch to system theme" [ref=f18e19] [cursor=pointer]
+                - button "Switch to light theme" [ref=f18e23] [cursor=pointer]
+                - button "Switch to dark theme" [pressed] [ref=f18e30] [cursor=pointer]
+            - generic [ref=f18e33]:
+              - button "Open search" [ref=f18e35] [cursor=pointer]:
+                - generic [ref=f18e36]: Search...
+                - generic [ref=f18e41]: ⌘K
+              - button "Ask AI" [ref=f18e43] [cursor=pointer]:
+                - generic [ref=f18e48]:
+                  - text: Ask AI
+                  - generic [ref=f18e49]: · docs assistant
+                  - generic [ref=f18e50]: ⌘I
+            - generic [ref=f18e51]:
+              - list [ref=f18e52]:
+                - listitem [ref=f18e53]:
+                  - link "Home" [ref=f18e54] [cursor=pointer]:
+                    - /url: /docs/reference/home
+              - generic [ref=f18e58]:
+                - heading "SQL Reference" [level=3] [ref=f18e60]
+                - list [ref=f18e61]:
+                  - listitem [ref=f18e62]:
+                    - link "Syntax" [ref=f18e63] [cursor=pointer]:
+                      - /url: /docs/reference/syntax
+                  - listitem [ref=f18e67]:
+                    - button "Statements" [ref=f18e68] [cursor=pointer]
+                  - listitem [ref=f18e73]:
+                    - button "Operators" [ref=f18e74] [cursor=pointer]
+              - generic [ref=f18e79]:
+                - heading "Data Types" [level=3] [ref=f18e81]
+                - list [ref=f18e82]:
+                  - listitem [ref=f18e83]:
+                    - link "List of data types" [ref=f18e84] [cursor=pointer]:
+                      - /url: /docs/reference/data-types
+                  - listitem [ref=f18e88]:
+                    - button "Numeric types" [ref=f18e89] [cursor=pointer]
+                  - listitem [ref=f18e94]:
+                    - button "String types" [ref=f18e95] [cursor=pointer]
+                  - listitem [ref=f18e100]:
+                    - button "Date and time types" [ref=f18e101] [cursor=pointer]
+                  - listitem [ref=f18e106]:
+                    - button "Network types" [ref=f18e107] [cursor=pointer]
+                  - listitem [ref=f18e112]:
+                    - button "Composite types" [ref=f18e113] [cursor=pointer]
+                  - listitem [ref=f18e118]:
+                    - button "Semi-structured types" [ref=f18e119] [cursor=pointer]
+                  - listitem [ref=f18e124]:
+                    - button "Nullable and optional types" [ref=f18e125] [cursor=pointer]
+                  - listitem [ref=f18e130]:
+                    - button "Specialized types" [ref=f18e131] [cursor=pointer]
+                  - listitem [ref=f18e136]:
+                    - button "Aggregate function types" [ref=f18e137] [cursor=pointer]
+                  - listitem [ref=f18e142]:
+                    - button "Special Data Types" [ref=f18e143] [cursor=pointer]
+                  - listitem [ref=f18e148]:
+                    - button "Binary encoding" [ref=f18e149] [cursor=pointer]
+              - generic [ref=f18e154]:
+                - heading "Engines" [level=3] [ref=f18e156]
+                - list [ref=f18e157]:
+                  - listitem [ref=f18e158]:
+                    - link "Overview" [ref=f18e159] [cursor=pointer]:
+                      - /url: /docs/reference/engines/engines
+                  - listitem [ref=f18e163]:
+                    - button "Table Engines" [ref=f18e164] [cursor=pointer]
+                  - listitem [ref=f18e169]:
+                    - button "Database Engines" [ref=f18e170] [cursor=pointer]
+              - generic [ref=f18e175]:
+                - heading "Functions" [level=3] [ref=f18e177]
+                - list [ref=f18e178]:
+                  - listitem [ref=f18e179]:
+                    - link "Functions Overview" [ref=f18e180] [cursor=pointer]:
+                      - /url: /docs/reference/functions
+                  - listitem [ref=f18e184]:
+                    - button "Regular functions" [ref=f18e185] [cursor=pointer]
+                  - listitem [ref=f18e190]:
+                    - button "Aggregate Functions" [ref=f18e191] [cursor=pointer]
+                  - listitem [ref=f18e196]:
+                    - button "Table functions" [ref=f18e197] [cursor=pointer]
+                  - listitem [ref=f18e202]:
+                    - button "Window functions" [ref=f18e203] [cursor=pointer]
+                  - listitem [ref=f18e208]:
+                    - button "User Defined Functions" [ref=f18e209] [cursor=pointer]
+              - generic [ref=f18e214]:
+                - heading "Formats" [level=3] [ref=f18e216]
+                - list [ref=f18e217]:
+                  - listitem [ref=f18e218]:
+                    - link "View all formats..." [ref=f18e219] [cursor=pointer]:
+                      - /url: /docs/reference/formats
+                  - listitem [ref=f18e223]:
+                    - button "Arrow" [ref=f18e224] [cursor=pointer]
+                  - listitem [ref=f18e229]:
+                    - button "Avro" [ref=f18e230] [cursor=pointer]
+                  - listitem [ref=f18e235]:
+                    - link "BSONEachRow" [ref=f18e236] [cursor=pointer]:
+                      - /url: /docs/reference/formats/BSONEachRow
+                  - listitem [ref=f18e240]:
+                    - link "Buffers" [ref=f18e241] [cursor=pointer]:
+                      - /url: /docs/reference/formats/Buffers
+                  - listitem [ref=f18e245]:
+                    - button "CSV" [ref=f18e246] [cursor=pointer]
+                  - listitem [ref=f18e251]:
+                    - link "CapnProto" [ref=f18e252] [cursor=pointer]:
+                      - /url: /docs/reference/formats/CapnProto
+                  - listitem [ref=f18e256]:
+                    - button "CustomSeparated" [ref=f18e257] [cursor=pointer]
+                  - listitem [ref=f18e262]:
+                    - link "DWARF" [ref=f18e263] [cursor=pointer]:
+                      - /url: /docs/reference/formats/DWARF
+                  - listitem [ref=f18e267]:
+                    - link "Form" [ref=f18e268] [cursor=pointer]:
+                      - /url: /docs/reference/formats/Form
+                  - listitem [ref=f18e272]:
+                    - link "GeoJSON" [ref=f18e273] [cursor=pointer]:
+                      - /url: /docs/reference/formats/GeoJSON
+                  - listitem [ref=f18e277]:
+                    - link "Hash" [ref=f18e278] [cursor=pointer]:
+                      - /url: /docs/reference/formats/Hash
+                  - listitem [ref=f18e282]:
+                    - link "HiveText" [ref=f18e283] [cursor=pointer]:
+                      - /url: /docs/reference/formats/HiveText
+                  - listitem [ref=f18e287]:
+                    - button "JSON" [ref=f18e288] [cursor=pointer]
+                  - listitem [ref=f18e293]:
+                    - button "LineAsString" [ref=f18e294] [cursor=pointer]
+                  - listitem [ref=f18e299]:
+                    - link "Markdown" [ref=f18e300] [cursor=pointer]:
+                      - /url: /docs/reference/formats/Markdown
+                  - listitem [ref=f18e304]:
+                    - link "MsgPack" [ref=f18e305] [cursor=pointer]:
+                      - /url: /docs/reference/formats/MsgPack
+                  - listitem [ref=f18e309]:
+                    - link "MySQLDump" [ref=f18e310] [cursor=pointer]:
+                      - /url: /docs/reference/formats/MySQLDump
+                  - listitem [ref=f18e314]:
+                    - link "MySQLWire" [ref=f18e315] [cursor=pointer]:
+                      - /url: /docs/reference/formats/MySQLWire
+                  - listitem [ref=f18e319]:
+                    - link "Native" [ref=f18e320] [cursor=pointer]:
+                      - /url: /docs/reference/formats/Native
+                  - listitem [ref=f18e324]:
+                    - link "Npy" [ref=f18e325] [cursor=pointer]:
+                      - /url: /docs/reference/formats/Npy
+                  - listitem [ref=f18e329]:
+                    - link "Null" [ref=f18e330] [cursor=pointer]:
+                      - /url: /docs/reference/formats/Null
+                  - listitem [ref=f18e334]:
+                    - link "ODBCDriver2" [ref=f18e335] [cursor=pointer]:
+                      - /url: /docs/reference/formats/ODBCDriver2
+                  - listitem [ref=f18e339]:
+                    - link "ORC" [ref=f18e340] [cursor=pointer]:
+                      - /url: /docs/reference/formats/ORC
+                  - listitem [ref=f18e344]:
+                    - link "One" [ref=f18e345] [cursor=pointer]:
+                      - /url: /docs/reference/formats/One
+                  - listitem [ref=f18e349]:
+                    - button "Parquet" [ref=f18e350] [cursor=pointer]
+                  - listitem [ref=f18e355]:
+                    - link "PNG" [ref=f18e356] [cursor=pointer]:
+                      - /url: /docs/reference/formats/PNG
+                  - listitem [ref=f18e360]:
+                    - link "PostgreSQLWire" [ref=f18e361] [cursor=pointer]:
+                      - /url: /docs/reference/formats/PostgreSQLWire
+                  - listitem [ref=f18e365]:
+                    - button "Pretty" [ref=f18e366] [cursor=pointer]
+                  - listitem [ref=f18e371]:
+                    - link "Prometheus" [ref=f18e372] [cursor=pointer]:
+                      - /url: /docs/reference/formats/Prometheus
+                  - listitem [ref=f18e376]:
+                    - button "Protobuf" [ref=f18e377] [cursor=pointer]
+                  - listitem [ref=f18e382]:
+                    - button "Puffin" [ref=f18e383] [cursor=pointer]
+                  - listitem [ref=f18e388]:
+                    - link "RawBLOB" [ref=f18e389] [cursor=pointer]:
+                      - /url: /docs/reference/formats/RawBLOB
+                  - listitem [ref=f18e393]:
+                    - link "Regexp" [ref=f18e394] [cursor=pointer]:
+                      - /url: /docs/reference/formats/Regexp
+                  - listitem [ref=f18e398]:
+                    - button "RowBinary" [ref=f18e399] [cursor=pointer]
+                  - listitem [ref=f18e404]:
+                    - link "SQLInsert" [ref=f18e405] [cursor=pointer]:
+                      - /url: /docs/reference/formats/SQLInsert
+                  - listitem [ref=f18e409]:
+                    - link "SQLite" [ref=f18e410] [cursor=pointer]:
+                      - /url: /docs/reference/formats/SQLite
+                  - listitem [ref=f18e414]:
+                    - button "TabSeparated" [ref=f18e415] [cursor=pointer]
+                  - listitem [ref=f18e420]:
+                    - button "Template" [ref=f18e421] [cursor=pointer]
+                  - listitem [ref=f18e426]:
+                    - link "Values" [ref=f18e427] [cursor=pointer]:
+                      - /url: /docs/reference/formats/Values
+                  - listitem [ref=f18e431]:
+                    - link "Vertical" [ref=f18e432] [cursor=pointer]:
+                      - /url: /docs/reference/formats/Vertical
+                  - listitem [ref=f18e436]:
+                    - link "XML" [ref=f18e437] [cursor=pointer]:
+                      - /url: /docs/reference/formats/XML
+              - generic [ref=f18e441]:
+                - heading "Settings" [level=3] [ref=f18e443]
+                - list [ref=f18e444]:
+                  - listitem [ref=f18e445]:
+                    - link "Overview" [ref=f18e446] [cursor=pointer]:
+                      - /url: /docs/reference/settings
+                  - listitem [ref=f18e450]:
+                    - button "Server Settings" [ref=f18e451] [cursor=pointer]
+                  - listitem [ref=f18e456]:
+                    - button "Session Settings" [ref=f18e457] [cursor=pointer]
+                  - listitem [ref=f18e462]:
+                    - button "MergeTree tables settings" [expanded] [ref=f18e463] [cursor=pointer]
+                    - list [ref=f18e468]:
+                      - listitem [ref=f18e469]:
+                        - link "add_minmax_*" [ref=f18e470] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/add-minmax
+                      - listitem [ref=f18e474]:
+                        - link "allow_*" [ref=f18e475] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/allow
+                      - listitem [ref=f18e479]:
+                        - link "allow_experimental_*" [ref=f18e480] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/allow-experimental
+                      - listitem [ref=f18e484]:
+                        - link "always_fetch_*" [ref=f18e485] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/always-fetch
+                      - listitem [ref=f18e489]:
+                        - link "async_*" [ref=f18e490] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/async
+                      - listitem [ref=f18e494]:
+                        - link "cache_populated_by_fetch_*" [ref=f18e495] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/cache-populated-by-fetch
+                      - listitem [ref=f18e499]:
+                        - link "check_*" [ref=f18e500] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/check
+                      - listitem [ref=f18e504]:
+                        - link "cleanup_*" [ref=f18e505] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/cleanup
+                      - listitem [ref=f18e509]:
+                        - link "cleanup_delay_period_*" [ref=f18e510] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/cleanup-delay-period
+                      - listitem [ref=f18e514]:
+                        - link "columns_*" [ref=f18e515] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/columns
+                      - listitem [ref=f18e519]:
+                        - link "compact_parts_*" [ref=f18e520] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/compact-parts
+                      - listitem [ref=f18e524]:
+                        - link "compress_*" [ref=f18e525] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/compress
+                      - listitem [ref=f18e529]:
+                        - link "concurrent_part_removal_threshold_*" [ref=f18e530] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/concurrent-part-removal-threshold
+                      - listitem [ref=f18e534]:
+                        - link "dead_blobs_*" [ref=f18e535] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/dead-blobs
+                      - listitem [ref=f18e539]:
+                        - link "detach_*" [ref=f18e540] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/detach
+                      - listitem [ref=f18e544]:
+                        - link "disable_*" [ref=f18e545] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/disable
+                      - listitem [ref=f18e549]:
+                        - link "distributed_index_*" [ref=f18e550] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/distributed-index
+                      - listitem [ref=f18e554]:
+                        - link "enable_*" [ref=f18e555] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/enable
+                      - listitem [ref=f18e559]:
+                        - link "enable_block_*" [ref=f18e560] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/enable-block
+                      - listitem [ref=f18e564]:
+                        - link "escape_*" [ref=f18e565] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/escape
+                      - listitem [ref=f18e569]:
+                        - link "exclude_*" [ref=f18e570] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/exclude
+                      - listitem [ref=f18e574]:
+                        - link "fault_probability_*" [ref=f18e575] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/fault-probability
+                      - listitem [ref=f18e579]:
+                        - link "fsync_*" [ref=f18e580] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/fsync
+                      - listitem [ref=f18e584]:
+                        - link "in_memory_*" [ref=f18e585] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/in-memory
+                      - listitem [ref=f18e589]:
+                        - link "inactive_parts_*" [ref=f18e590] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/inactive-parts
+                      - listitem [ref=f18e594]:
+                        - link "index_granularity_*" [ref=f18e595] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/index-granularity
+                      - listitem [ref=f18e599]:
+                        - link "kill_delay_period_*" [ref=f18e600] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/kill-delay-period
+                      - listitem [ref=f18e604]:
+                        - link "map_buckets_*" [ref=f18e605] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/map-buckets
+                      - listitem [ref=f18e609]:
+                        - link "map_serialization_version_*" [ref=f18e610] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/map-serialization-version
+                      - listitem [ref=f18e614]:
+                        - link "marks_*" [ref=f18e615] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/marks
+                      - listitem [ref=f18e619]:
+                        - link "materialize_*" [ref=f18e620] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/materialize
+                      - listitem [ref=f18e624]:
+                        - link "materialize_projections_*" [ref=f18e625] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/materialize-projections
+                      - listitem [ref=f18e629]:
+                        - link "max_*" [ref=f18e630] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/max
+                      - listitem [ref=f18e634]:
+                        - link "max_bytes_*" [ref=f18e635] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/max-bytes
+                      - listitem [ref=f18e639]:
+                        - link "max_delay_*" [ref=f18e640] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/max-delay
+                      - listitem [ref=f18e644]:
+                        - link "max_files_*" [ref=f18e645] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/max-files
+                      - listitem [ref=f18e649]:
+                        - link "max_merge_*" [ref=f18e650] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/max-merge
+                      - listitem [ref=f18e654]:
+                        - link "max_number_*" [ref=f18e655] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/max-number
+                      - listitem [ref=f18e659]:
+                        - link "max_part_*" [ref=f18e660] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/max-part
+                      - listitem [ref=f18e664]:
+                        - link "max_parts_*" [ref=f18e665] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/max-parts
+                      - listitem [ref=f18e669]:
+                        - link "max_postpone_*" [ref=f18e670] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/max-postpone
+                      - listitem [ref=f18e674]:
+                        - link "max_replicated_*" [ref=f18e675] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/max-replicated
+                      - listitem [ref=f18e679]:
+                        - link "max_suspicious_broken_parts_*" [ref=f18e680] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/max-suspicious-broken-parts
+                      - listitem [ref=f18e684]:
+                        - link "merge_*" [ref=f18e685] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/merge
+                      - listitem [ref=f18e689]:
+                        - link "merge_max_*" [ref=f18e690] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/merge-max
+                      - listitem [ref=f18e694]:
+                        - link "merge_selecting_*" [ref=f18e695] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/merge-selecting
+                      - listitem [ref=f18e699]:
+                        - link "merge_selector_*" [ref=f18e700] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/merge-selector
+                      - listitem [ref=f18e704]:
+                        - link "merge_tree_*" [ref=f18e705] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/merge-tree
+                      - listitem [ref=f18e709]:
+                        - link "merge_with_*" [ref=f18e710] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/merge-with
+                      - listitem [ref=f18e714]:
+                        - link "min_*" [ref=f18e715] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/min
+                      - listitem [ref=f18e719]:
+                        - link "min_age_*" [ref=f18e720] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/min-age
+                      - listitem [ref=f18e724]:
+                        - link "min_bytes_*" [ref=f18e725] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/min-bytes
+                      - listitem [ref=f18e729]:
+                        - link "min_compressed_*" [ref=f18e730] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/min-compressed
+                      - listitem [ref=f18e734]:
+                        - link "min_delay_*" [ref=f18e735] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/min-delay
+                      - listitem [ref=f18e739]:
+                        - link "min_free_*" [ref=f18e740] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/min-free
+                      - listitem [ref=f18e744]:
+                        - link "min_level_*" [ref=f18e745] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/min-level
+                      - listitem [ref=f18e749]:
+                        - link "min_relative_*" [ref=f18e750] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/min-relative
+                      - listitem [ref=f18e754]:
+                        - link "min_rows_*" [ref=f18e755] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/min-rows
+                      - listitem [ref=f18e759]:
+                        - link "number_of_*" [ref=f18e760] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/number-of
+                      - listitem [ref=f18e764]:
+                        - link "object_shared_*" [ref=f18e765] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/object-shared
+                      - listitem [ref=f18e769]:
+                        - link "part_moves_*" [ref=f18e770] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/part-moves
+                      - listitem [ref=f18e774]:
+                        - link "parts_to_*" [ref=f18e775] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/parts-to
+                      - listitem [ref=f18e779]:
+                        - link "prefer_fetch_*" [ref=f18e780] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/prefer-fetch
+                      - listitem [ref=f18e784]:
+                        - link "prewarm_*" [ref=f18e785] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/prewarm
+                      - listitem [ref=f18e789]:
+                        - link "primary_key_*" [ref=f18e790] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/primary-key
+                      - listitem [ref=f18e794]:
+                        - link "refresh_*" [ref=f18e795] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/refresh
+                      - listitem [ref=f18e799]:
+                        - link "remote_fs_*" [ref=f18e800] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/remote-fs
+                      - listitem [ref=f18e804]:
+                        - link "remove_*" [ref=f18e805] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/remove
+                      - listitem [ref=f18e809]:
+                        - link "replicated_deduplication_window_*" [ref=f18e810] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/replicated-deduplication-window
+                      - listitem [ref=f18e814]:
+                        - link "replicated_fetches_*" [ref=f18e815] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/replicated-fetches
+                      - listitem [ref=f18e819]:
+                        - link "replicated_max_*" [ref=f18e820] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/replicated-max
+                      - listitem [ref=f18e824]:
+                        - link "shared_merge_*" [ref=f18e825] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/shared-merge
+                      - listitem [ref=f18e829]:
+                        - link "sleep_before_*" [ref=f18e830] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/sleep-before
+                      - listitem [ref=f18e834]:
+                        - link "table_*" [ref=f18e835] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/table
+                      - listitem [ref=f18e839]:
+                        - link "text_index_*" [ref=f18e840] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/text-index
+                      - listitem [ref=f18e844]:
+                        - link "use_*" [ref=f18e845] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/use
+                      - listitem [ref=f18e849]:
+                        - link "use_minimalistic_*" [ref=f18e850] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/use-minimalistic
+                      - listitem [ref=f18e854]:
+                        - link "vertical_merge_*" [ref=f18e855] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/vertical-merge
+                      - listitem [ref=f18e859]:
+                        - link "write_*" [ref=f18e860] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/write
+                      - listitem [ref=f18e864]:
+                        - link "write_ahead_*" [ref=f18e865] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/write-ahead
+                      - listitem [ref=f18e869]:
+                        - link "zero_copy_*" [ref=f18e870] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/zero-copy
+                      - listitem [ref=f18e874]:
+                        - link "Other" [ref=f18e875] [cursor=pointer]:
+                          - /url: /docs/reference/settings/merge-tree-settings/other
+                  - listitem [ref=f18e879]:
+                    - button "Format Settings" [ref=f18e880] [cursor=pointer]
+                  - listitem [ref=f18e885]:
+                    - link "Beta and experimental features" [ref=f18e886] [cursor=pointer]:
+                      - /url: /docs/reference/settings/beta-and-experimental-features
+              - generic [ref=f18e890]:
+                - heading "System Tables" [level=3] [ref=f18e892]
+                - list [ref=f18e893]:
+                  - listitem [ref=f18e894]:
+                    - link "Overview" [ref=f18e895] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/overview
+                  - listitem [ref=f18e899]:
+                    - link "system.aggregate_function_combinators" [ref=f18e900] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/aggregate_function_combinators
+                  - listitem [ref=f18e904]:
+                    - link "system.aggregated_zookeeper_log" [ref=f18e905] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/aggregated_zookeeper_log
+                  - listitem [ref=f18e909]:
+                    - link "system.asynchronous_insert_log" [ref=f18e910] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/asynchronous_insert_log
+                  - listitem [ref=f18e914]:
+                    - link "system.asynchronous_inserts" [ref=f18e915] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/asynchronous_inserts
+                  - listitem [ref=f18e919]:
+                    - link "system.asynchronous_loader" [ref=f18e920] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/asynchronous_loader
+                  - listitem [ref=f18e924]:
+                    - link "system.asynchronous_metric_log" [ref=f18e925] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/asynchronous_metric_log
+                  - listitem [ref=f18e929]:
+                    - link "system.asynchronous_metrics" [ref=f18e930] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/asynchronous_metrics
+                  - listitem [ref=f18e934]:
+                    - link "system.azure_queue_log" [ref=f18e935] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/azure_queue_log
+                  - listitem [ref=f18e939]:
+                    - link "system.azure_queue_metadata" [ref=f18e940] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/azure_queue_metadata
+                  - listitem [ref=f18e944]:
+                    - link "system.azure_queue_metadata_cache" [ref=f18e945] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/azure_queue_metadata_cache
+                  - listitem [ref=f18e949]:
+                    - link "system.azure_queue_settings" [ref=f18e950] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/azure_queue_settings
+                  - listitem [ref=f18e954]:
+                    - link "system.backup_log" [ref=f18e955] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/backup_log
+                  - listitem [ref=f18e959]:
+                    - link "system.backups" [ref=f18e960] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/backups
+                  - listitem [ref=f18e964]:
+                    - link "system.background_schedule_pool" [ref=f18e965] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/background_schedule_pool
+                  - listitem [ref=f18e969]:
+                    - link "system.background_schedule_pool_log" [ref=f18e970] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/background_schedule_pool_log
+                  - listitem [ref=f18e974]:
+                    - link "system.blob_storage_log" [ref=f18e975] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/blob_storage_log
+                  - listitem [ref=f18e979]:
+                    - link "system.build_options" [ref=f18e980] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/build_options
+                  - listitem [ref=f18e984]:
+                    - link "system.certificates" [ref=f18e985] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/certificates
+                  - listitem [ref=f18e989]:
+                    - link "system.clusters" [ref=f18e990] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/clusters
+                  - listitem [ref=f18e994]:
+                    - link "system.codecs" [ref=f18e995] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/codecs
+                  - listitem [ref=f18e999]:
+                    - link "system.collations" [ref=f18e1000] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/collations
+                  - listitem [ref=f18e1004]:
+                    - link "system.columns" [ref=f18e1005] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/columns
+                  - listitem [ref=f18e1009]:
+                    - link "system.columns_cache" [ref=f18e1010] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/columns_cache
+                  - listitem [ref=f18e1014]:
+                    - link "system.completions" [ref=f18e1015] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/completions
+                  - listitem [ref=f18e1019]:
+                    - link "system.constraints" [ref=f18e1020] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/constraints
+                  - listitem [ref=f18e1024]:
+                    - link "system.contributors" [ref=f18e1025] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/contributors
+                  - listitem [ref=f18e1029]:
+                    - link "system.crash_log" [ref=f18e1030] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/crash_log
+                  - listitem [ref=f18e1034]:
+                    - link "system.current_roles" [ref=f18e1035] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/current_roles
+                  - listitem [ref=f18e1039]:
+                    - link "system.dashboards" [ref=f18e1040] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/dashboards
+                  - listitem [ref=f18e1044]:
+                    - link "system.data_skipping_index_types" [ref=f18e1045] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/data_skipping_index_types
+                  - listitem [ref=f18e1049]:
+                    - link "system.data_skipping_indices" [ref=f18e1050] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/data_skipping_indices
+                  - listitem [ref=f18e1054]:
+                    - link "system.data_type_families" [ref=f18e1055] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/data_type_families
+                  - listitem [ref=f18e1059]:
+                    - link "system.database_engines" [ref=f18e1060] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/database_engines
+                  - listitem [ref=f18e1064]:
+                    - link "system.database_replicas" [ref=f18e1065] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/database_replicas
+                  - listitem [ref=f18e1069]:
+                    - link "system.databases" [ref=f18e1070] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/databases
+                  - listitem [ref=f18e1074]:
+                    - link "system.dead_letter_queue" [ref=f18e1075] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/dead_letter_queue
+                  - listitem [ref=f18e1079]:
+                    - link "system.delta_lake_metadata_log" [ref=f18e1080] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/delta_lake_metadata_log
+                  - listitem [ref=f18e1084]:
+                    - link "system.delta_lake_metadata_log" [ref=f18e1085] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/delta_metadata_log
+                  - listitem [ref=f18e1089]:
+                    - link "system.detached_parts" [ref=f18e1090] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/detached_parts
+                  - listitem [ref=f18e1094]:
+                    - link "system.detached_tables" [ref=f18e1095] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/detached_tables
+                  - listitem [ref=f18e1099]:
+                    - link "system.dictionaries" [ref=f18e1100] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/dictionaries
+                  - listitem [ref=f18e1104]:
+                    - link "system.dictionary_layouts" [ref=f18e1105] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/dictionary_layouts
+                  - listitem [ref=f18e1109]:
+                    - link "system.dictionary_sources" [ref=f18e1110] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/dictionary_sources
+                  - listitem [ref=f18e1114]:
+                    - link "system.dimensional_metrics" [ref=f18e1115] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/dimensional_metrics
+                  - listitem [ref=f18e1119]:
+                    - link "system.disks" [ref=f18e1120] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/disks
+                  - listitem [ref=f18e1124]:
+                    - link "system.disk_types" [ref=f18e1125] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/disk_types
+                  - listitem [ref=f18e1129]:
+                    - link "system.distributed_ddl_queue" [ref=f18e1130] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/distributed_ddl_queue
+                  - listitem [ref=f18e1134]:
+                    - link "system.distribution_queue" [ref=f18e1135] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/distribution_queue
+                  - listitem [ref=f18e1139]:
+                    - link "system.dns_cache" [ref=f18e1140] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/dns_cache
+                  - listitem [ref=f18e1144]:
+                    - link "system.documentation" [ref=f18e1145] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/documentation
+                  - listitem [ref=f18e1149]:
+                    - link "system.dropped_tables" [ref=f18e1150] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/dropped_tables
+                  - listitem [ref=f18e1154]:
+                    - link "system.dropped_tables_parts" [ref=f18e1155] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/dropped_tables_parts
+                  - listitem [ref=f18e1159]:
+                    - link "system.enabled_roles" [ref=f18e1160] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/enabled_roles
+                  - listitem [ref=f18e1164]:
+                    - link "system.error_log" [ref=f18e1165] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/error_log
+                  - listitem [ref=f18e1169]:
+                    - link "system.errors" [ref=f18e1170] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/errors
+                  - listitem [ref=f18e1174]:
+                    - link "system.events" [ref=f18e1175] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/events
+                  - listitem [ref=f18e1179]:
+                    - link "system.fail_points" [ref=f18e1180] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/fail_points
+                  - listitem [ref=f18e1184]:
+                    - link "system.formats" [ref=f18e1185] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/formats
+                  - listitem [ref=f18e1189]:
+                    - link "system.filesystem_cache_log" [ref=f18e1190] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/filesystem_cache_log
+                  - listitem [ref=f18e1194]:
+                    - link "system.filesystem_cache_settings" [ref=f18e1195] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/filesystem_cache_settings
+                  - listitem [ref=f18e1199]:
+                    - link "system.filesystem_cache" [ref=f18e1200] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/filesystem_cache
+                  - listitem [ref=f18e1204]:
+                    - link "system.filesystem_read_prefetches_log" [ref=f18e1205] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/filesystem_read_prefetches_log
+                  - listitem [ref=f18e1209]:
+                    - link "system.functions" [ref=f18e1210] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/functions
+                  - listitem [ref=f18e1214]:
+                    - link "system.grants" [ref=f18e1215] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/grants
+                  - listitem [ref=f18e1219]:
+                    - link "system.graphite_retentions" [ref=f18e1220] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/graphite_retentions
+                  - listitem [ref=f18e1224]:
+                    - link "system.handlers" [ref=f18e1225] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/handlers
+                  - listitem [ref=f18e1229]:
+                    - link "histogram_metric_log" [ref=f18e1230] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/histogram_metric_log
+                  - listitem [ref=f18e1234]:
+                    - link "system.histogram_metrics" [ref=f18e1235] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/histogram_metrics
+                  - listitem [ref=f18e1239]:
+                    - link "hypothetical_indexes" [ref=f18e1240] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/hypothetical_indexes
+                  - listitem [ref=f18e1244]:
+                    - link "hypothetical_projections" [ref=f18e1245] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/hypothetical_projections
+                  - listitem [ref=f18e1249]:
+                    - link "system.iceberg_files" [ref=f18e1250] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/iceberg_files
+                  - listitem [ref=f18e1254]:
+                    - link "system.iceberg_history" [ref=f18e1255] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/iceberg_history
+                  - listitem [ref=f18e1259]:
+                    - link "system.iceberg_metadata_log" [ref=f18e1260] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/iceberg_metadata_log
+                  - listitem [ref=f18e1264]:
+                    - link "INFORMATION_SCHEMA" [ref=f18e1265] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/information_schema
+                  - listitem [ref=f18e1269]:
+                    - link "system.instrumentation" [ref=f18e1270] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/instrumentation
+                  - listitem [ref=f18e1274]:
+                    - link "system.jemalloc_arena_bins" [ref=f18e1275] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/jemalloc_arena_bins
+                  - listitem [ref=f18e1279]:
+                    - link "system.jemalloc_bins" [ref=f18e1280] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/jemalloc_bins
+                  - listitem [ref=f18e1284]:
+                    - link "system.jemalloc_profile_text" [ref=f18e1285] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/jemalloc_profile_text
+                  - listitem [ref=f18e1289]:
+                    - link "system.jemalloc_sampled_allocations" [ref=f18e1290] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/jemalloc_sampled_allocations
+                  - listitem [ref=f18e1294]:
+                    - link "system.jemalloc_stats" [ref=f18e1295] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/jemalloc_stats
+                  - listitem [ref=f18e1299]:
+                    - link "system.kafka_consumers" [ref=f18e1300] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/kafka_consumers
+                  - listitem [ref=f18e1304]:
+                    - link "system.keeper_changelogs" [ref=f18e1305] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/keeper_changelogs
+                  - listitem [ref=f18e1309]:
+                    - link "system.keeper_cluster" [ref=f18e1310] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/keeper_cluster
+                  - listitem [ref=f18e1314]:
+                    - link "system.keeper_snapshots" [ref=f18e1315] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/keeper_snapshots
+                  - listitem [ref=f18e1319]:
+                    - link "keeper_storage" [ref=f18e1320] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/keeper_storage
+                  - listitem [ref=f18e1324]:
+                    - link "system.keywords" [ref=f18e1325] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/keywords
+                  - listitem [ref=f18e1329]:
+                    - link "system.licenses" [ref=f18e1330] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/licenses
+                  - listitem [ref=f18e1334]:
+                    - link "system.macros" [ref=f18e1335] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/macros
+                  - listitem [ref=f18e1339]:
+                    - link "system.masking_policies" [ref=f18e1340] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/masking_policies
+                  - listitem [ref=f18e1344]:
+                    - link "system.merge_tree_settings" [ref=f18e1345] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/merge_tree_settings
+                  - listitem [ref=f18e1349]:
+                    - link "system.merges" [ref=f18e1350] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/merges
+                  - listitem [ref=f18e1354]:
+                    - link "system.metric_log" [ref=f18e1355] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/metric_log
+                  - listitem [ref=f18e1359]:
+                    - link "system.metrics" [ref=f18e1360] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/metrics
+                  - listitem [ref=f18e1364]:
+                    - link "models" [ref=f18e1365] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/models
+                  - listitem [ref=f18e1369]:
+                    - link "system.moves" [ref=f18e1370] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/moves
+                  - listitem [ref=f18e1374]:
+                    - link "system.mutations" [ref=f18e1375] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/mutations
+                  - listitem [ref=f18e1379]:
+                    - link "system.named_collections" [ref=f18e1380] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/named_collections
+                  - listitem [ref=f18e1384]:
+                    - link "system.numbers" [ref=f18e1385] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/numbers
+                  - listitem [ref=f18e1389]:
+                    - link "system.numbers_mt" [ref=f18e1390] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/numbers_mt
+                  - listitem [ref=f18e1394]:
+                    - link "system.one" [ref=f18e1395] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/one
+                  - listitem [ref=f18e1399]:
+                    - link "system.opentelemetry_span_log" [ref=f18e1400] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/opentelemetry_span_log
+                  - listitem [ref=f18e1404]:
+                    - link "system.part_log" [ref=f18e1405] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/part_log
+                  - listitem [ref=f18e1409]:
+                    - link "system.part_moves_between_shards" [ref=f18e1410] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/part_moves_between_shards
+                  - listitem [ref=f18e1414]:
+                    - link "system.parts" [ref=f18e1415] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/parts
+                  - listitem [ref=f18e1419]:
+                    - link "system.parts_columns" [ref=f18e1420] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/parts_columns
+                  - listitem [ref=f18e1424]:
+                    - link "system.predicate_statistics_log" [ref=f18e1425] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/predicate_statistics_log
+                  - listitem [ref=f18e1429]:
+                    - link "system.primes" [ref=f18e1430] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/primes
+                  - listitem [ref=f18e1434]:
+                    - link "system.privileges" [ref=f18e1435] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/privileges
+                  - listitem [ref=f18e1439]:
+                    - link "system.processes" [ref=f18e1440] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/processes
+                  - listitem [ref=f18e1444]:
+                    - link "system.processors_profile_log" [ref=f18e1445] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/processors_profile_log
+                  - listitem [ref=f18e1449]:
+                    - link "system.projection_parts" [ref=f18e1450] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/projection_parts
+                  - listitem [ref=f18e1454]:
+                    - link "system.projection_parts_columns" [ref=f18e1455] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/projection_parts_columns
+                  - listitem [ref=f18e1459]:
+                    - link "system.projections" [ref=f18e1460] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/projections
+                  - listitem [ref=f18e1464]:
+                    - link "system.query_cache" [ref=f18e1465] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/query_cache
+                  - listitem [ref=f18e1469]:
+                    - link "system.query_condition_cache" [ref=f18e1470] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/query_condition_cache
+                  - listitem [ref=f18e1474]:
+                    - link "system.query_log" [ref=f18e1475] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/query_log
+                  - listitem [ref=f18e1479]:
+                    - link "system.query_metric_log" [ref=f18e1480] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/query_metric_log
+                  - listitem [ref=f18e1484]:
+                    - link "system.query_thread_log" [ref=f18e1485] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/query_thread_log
+                  - listitem [ref=f18e1489]:
+                    - link "system.query_views_log" [ref=f18e1490] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/query_views_log
+                  - listitem [ref=f18e1494]:
+                    - link "system.quota_limits" [ref=f18e1495] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/quota_limits
+                  - listitem [ref=f18e1499]:
+                    - link "system.quota_usage" [ref=f18e1500] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/quota_usage
+                  - listitem [ref=f18e1504]:
+                    - link "system.quotas" [ref=f18e1505] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/quotas
+                  - listitem [ref=f18e1509]:
+                    - link "system.quotas_usage" [ref=f18e1510] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/quotas_usage
+                  - listitem [ref=f18e1514]:
+                    - link "system.remote_data_paths" [ref=f18e1515] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/remote_data_paths
+                  - listitem [ref=f18e1519]:
+                    - link "system.replicas" [ref=f18e1520] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/replicas
+                  - listitem [ref=f18e1524]:
+                    - link "system.replicated_fetches" [ref=f18e1525] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/replicated_fetches
+                  - listitem [ref=f18e1529]:
+                    - link "system.replicated_merge_tree_settings" [ref=f18e1530] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/replicated_merge_tree_settings
+                  - listitem [ref=f18e1534]:
+                    - link "system.replication_queue" [ref=f18e1535] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/replication_queue
+                  - listitem [ref=f18e1539]:
+                    - link "system.resources" [ref=f18e1540] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/resources
+                  - listitem [ref=f18e1544]:
+                    - link "system.rocksdb" [ref=f18e1545] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/rocksdb
+                  - listitem [ref=f18e1549]:
+                    - link "system.role_grants" [ref=f18e1550] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/role_grants
+                  - listitem [ref=f18e1554]:
+                    - link "system.roles" [ref=f18e1555] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/roles
+                  - listitem [ref=f18e1559]:
+                    - link "system.row_policies" [ref=f18e1560] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/row_policies
+                  - listitem [ref=f18e1564]:
+                    - link "system.s3_queue_metadata" [ref=f18e1565] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/s3_queue_metadata
+                  - listitem [ref=f18e1569]:
+                    - link "system.s3_queue_settings" [ref=f18e1570] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/s3_queue_settings
+                  - listitem [ref=f18e1574]:
+                    - link "system.s3queue_log" [ref=f18e1575] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/s3queue_log
+                  - listitem [ref=f18e1579]:
+                    - link "system.s3queue_metadata_cache" [ref=f18e1580] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/s3queue_metadata_cache
+                  - listitem [ref=f18e1584]:
+                    - link "system.scheduler" [ref=f18e1585] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/scheduler
+                  - listitem [ref=f18e1589]:
+                    - link "system.schema_inference_cache" [ref=f18e1590] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/schema_inference_cache
+                  - listitem [ref=f18e1594]:
+                    - link "system.server_settings" [ref=f18e1595] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/server_settings
+                  - listitem [ref=f18e1599]:
+                    - link "system.session_log" [ref=f18e1600] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/session_log
+                  - listitem [ref=f18e1604]:
+                    - link "system.session_query_ids" [ref=f18e1605] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/session_query_ids
+                  - listitem [ref=f18e1609]:
+                    - link "system.settings" [ref=f18e1610] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/settings
+                  - listitem [ref=f18e1614]:
+                    - link "system.settings_changes" [ref=f18e1615] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/settings_changes
+                  - listitem [ref=f18e1619]:
+                    - link "system.settings_profile_elements" [ref=f18e1620] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/settings_profile_elements
+                  - listitem [ref=f18e1624]:
+                    - link "system.settings_profiles" [ref=f18e1625] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/settings_profiles
+                  - listitem [ref=f18e1629]:
+                    - link "system.stack_trace" [ref=f18e1630] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/stack_trace
+                  - listitem [ref=f18e1634]:
+                    - link "system.statements" [ref=f18e1635] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/statements
+                  - listitem [ref=f18e1639]:
+                    - link "system.stemmers" [ref=f18e1640] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/stemmers
+                  - listitem [ref=f18e1644]:
+                    - link "system.storage_policies" [ref=f18e1645] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/storage_policies
+                  - listitem [ref=f18e1649]:
+                    - link "system.symbols" [ref=f18e1650] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/symbols
+                  - listitem [ref=f18e1654]:
+                    - link "system.warnings" [ref=f18e1655] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/system_warnings
+                  - listitem [ref=f18e1659]:
+                    - link "system.table_engines" [ref=f18e1660] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/table_engines
+                  - listitem [ref=f18e1664]:
+                    - link "system.table_functions" [ref=f18e1665] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/table_functions
+                  - listitem [ref=f18e1669]:
+                    - link "system.tables" [ref=f18e1670] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/tables
+                  - listitem [ref=f18e1674]:
+                    - link "system.text_log" [ref=f18e1675] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/text_log
+                  - listitem [ref=f18e1679]:
+                    - link "system.time_zones" [ref=f18e1680] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/time_zones
+                  - listitem [ref=f18e1684]:
+                    - link "system.tokenizers" [ref=f18e1685] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/tokenizers
+                  - listitem [ref=f18e1689]:
+                    - link "system.trace_log" [ref=f18e1690] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/trace_log
+                  - listitem [ref=f18e1694]:
+                    - link "system.transactions" [ref=f18e1695] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/transactions
+                  - listitem [ref=f18e1699]:
+                    - link "system.transactions_info_log" [ref=f18e1700] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/transactions_info_log
+                  - listitem [ref=f18e1704]:
+                    - link "system.unicode" [ref=f18e1705] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/unicode
+                  - listitem [ref=f18e1709]:
+                    - link "system.user_defined_functions" [ref=f18e1710] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/user_defined_functions
+                  - listitem [ref=f18e1714]:
+                    - link "system.user_directories" [ref=f18e1715] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/user_directories
+                  - listitem [ref=f18e1719]:
+                    - link "system.user_processes" [ref=f18e1720] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/user_processes
+                  - listitem [ref=f18e1724]:
+                    - link "user_query_log" [ref=f18e1725] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/user_query_log
+                  - listitem [ref=f18e1729]:
+                    - link "system.users" [ref=f18e1730] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/users
+                  - listitem [ref=f18e1734]:
+                    - link "system.view_refreshes" [ref=f18e1735] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/view_refreshes
+                  - listitem [ref=f18e1739]:
+                    - link "system.warnings" [ref=f18e1740] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/warnings
+                  - listitem [ref=f18e1744]:
+                    - link "system.workloads" [ref=f18e1745] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/workloads
+                  - listitem [ref=f18e1749]:
+                    - link "system.zeros" [ref=f18e1750] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/zeros
+                  - listitem [ref=f18e1754]:
+                    - link "system.zeros_mt" [ref=f18e1755] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/zeros_mt
+                  - listitem [ref=f18e1759]:
+                    - link "system.zookeeper" [ref=f18e1760] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/zookeeper
+                  - listitem [ref=f18e1764]:
+                    - link "system.zookeeper_info" [ref=f18e1765] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/zookeeper_info
+                  - listitem [ref=f18e1769]:
+                    - link "system.zookeeper_connection" [ref=f18e1770] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/zookeeper_connection
+                  - listitem [ref=f18e1774]:
+                    - link "system.zookeeper_connection_log" [ref=f18e1775] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/zookeeper_connection_log
+                  - listitem [ref=f18e1779]:
+                    - link "system.zookeeper_log" [ref=f18e1780] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/zookeeper_log
+                  - listitem [ref=f18e1784]:
+                    - link "system.zookeeper_watches" [ref=f18e1785] [cursor=pointer]:
+                      - /url: /docs/reference/system-tables/zookeeper_watches
+              - generic [ref=f18e1789]:
+                - heading "Data Lakes" [level=3] [ref=f18e1791]
+                - list [ref=f18e1792]:
+                  - listitem [ref=f18e1793]:
+                    - link "Overview" [ref=f18e1794] [cursor=pointer]:
+                      - /url: /docs/reference/datalakes
+          - list [ref=f18e1798]:
+            - listitem [ref=f18e1799]:
+              - button "English" [ref=f18e1801] [cursor=pointer]
+        - generic [ref=f18e1805]:
+          - generic [ref=f18e1806]:
+            - link "Home" [ref=f18e1807] [cursor=pointer]:
+              - /url: /docs
+            - button "Database" [ref=f18e1809] [cursor=pointer]
+            - button "Solutions" [ref=f18e1814] [cursor=pointer]
+            - button "Integrations" [ref=f18e1819] [cursor=pointer]
+            - button "Resources" [ref=f18e1824] [cursor=pointer]
+          - generic [ref=f18e1829]:
+            - link "50.5k" [ref=f18e1830] [cursor=pointer]:
+              - /url: https://github.com/ClickHouse/ClickHouse
+            - link "Sign in" [ref=f18e1834] [cursor=pointer]:
+              - /url: https://console.clickhouse.cloud/signIn?loc=docs-nav-signIn-cta&glxid=42dccf60-46fe-4da6-b99e-1094eb3059ba&pagePath=%2Fdocs%2Freference%2Fsettings%2Fmerge-tree-settings&origPath=%2Fdocs%2Fsearch&utm_ga=GA1.1.1050419392.1792299550
+            - link "Get Started" [ref=f18e1835] [cursor=pointer]:
+              - /url: https://clickhouse.cloud/signUp?loc=docs-nav-signUp-cta&glxid=42dccf60-46fe-4da6-b99e-1094eb3059ba&pagePath=%2Fdocs%2Freference%2Fsettings%2Fmerge-tree-settings&origPath=%2Fdocs%2Fsearch&utm_ga=GA1.1.1050419392.1792299550
+        - main [ref=f18e1836]:
+          - generic [ref=f18e1837]:
+            - generic [ref=f18e1839]:
+              - navigation "Breadcrumb" [ref=f18e1840]:
+                - list [ref=f18e1841]:
+                  - listitem [ref=f18e1842]: Settings
+                  - listitem [ref=f18e1845]: MergeTree tables settings
+              - generic [ref=f18e1847]:
+                - heading "MergeTree tables settings" [level=1] [ref=f18e1848]
+                - button "Ask AI about MergeTree tables settings" [ref=f18e1849] [cursor=pointer]:
+                  - generic [ref=f18e1854]: Ask about this page
+            - generic [ref=f18e1855]:
+              - generic [ref=f18e1856]:
+                - text: System table
+                - code [ref=f18e1857]: system.merge_tree_settings
+                - text: shows the globally set MergeTree settings.
+              - generic [ref=f18e1858]:
+                - text: MergeTree settings can be set in the
+                - code [ref=f18e1859]: merge_tree
+                - text: section of the server config file, or specified for each
+                - code [ref=f18e1860]: MergeTree
+                - text: table individually in the
+                - code [ref=f18e1861]: SETTINGS
+                - text: clause of the
+                - code [ref=f18e1862]: CREATE TABLE
+                - text: statement.
+              - generic [ref=f18e1863]:
+                - text: Example for customizing setting
+                - code [ref=f18e1864]: max_suspicious_broken_parts
+                - text: ":"
+              - generic [ref=f18e1865]:
+                - text: Configure the default for all
+                - code [ref=f18e1866]: MergeTree
+                - text: "tables in the server configuration file:"
+              - generic [ref=f18e1867]:
+                - generic [ref=f18e1868]:
+                  - button "Report incorrect code" [ref=f18e1870] [cursor=pointer]
+                  - generic [ref=f18e1874]:
+                    - button "Copy the contents from the code block" [ref=f18e1875] [cursor=pointer]
+                    - status [ref=f18e1879]
+                - code [ref=f18e1883]:
+                  - generic [ref=f18e1884]: <merge_tree>
+                  - generic [ref=f18e1885]: <max_suspicious_broken_parts>5</max_suspicious_broken_parts>
+                  - generic [ref=f18e1886]: </merge_tree>
+              - generic [ref=f18e1887]: "Set for a particular table:"
+              - generic [ref=f18e1888]:
+                - generic [ref=f18e1889]:
+                  - button "Report incorrect code" [ref=f18e1891] [cursor=pointer]
+                  - generic [ref=f18e1895]:
+                    - button "Copy the contents from the code block" [ref=f18e1896] [cursor=pointer]
+                    - status [ref=f18e1900]
+                - code [ref=f18e1904]:
+                  - generic [ref=f18e1905]: CREATE TABLE tab
+                  - text: (
+                  - generic [ref=f18e1906]: "`A` Int64"
+                  - text: )
+                  - generic [ref=f18e1907]: ENGINE = MergeTree
+                  - generic [ref=f18e1908]: ORDER BY tuple()
+                  - generic [ref=f18e1909]: SETTINGS max_suspicious_broken_parts = 500;
+              - generic [ref=f18e1910]:
+                - text: Change the settings for a particular table using
+                - code [ref=f18e1911]: ALTER TABLE ... MODIFY SETTING
+                - text: ":"
+              - generic [ref=f18e1912]:
+                - generic [ref=f18e1913]:
+                  - button "Report incorrect code" [ref=f18e1915] [cursor=pointer]
+                  - generic [ref=f18e1919]:
+                    - button "Copy the contents from the code block" [ref=f18e1920] [cursor=pointer]
+                    - status [ref=f18e1924]
+                - code [ref=f18e1928]:
+                  - generic [ref=f18e1929]: ALTER TABLE tab MODIFY SETTING max_suspicious_broken_parts = 100;
+                  - generic [ref=f18e1930]: "-- reset to global default (value from system.merge_tree_settings)"
+                  - generic [ref=f18e1931]: ALTER TABLE tab RESET SETTING max_suspicious_broken_parts;
+              - heading "Navigate to header MergeTree settings" [level=2] [ref=f18e1932]:
+                - link "Navigate to header" [ref=f18e1933] [cursor=pointer]:
+                  - /url: "#mergetree-settings"
+                - generic [ref=f18e1938] [cursor=pointer]: MergeTree settings
+              - heading "Navigate to header Browse MergeTree table settings" [level=2] [ref=f18e1939]:
+                - link "Navigate to header" [ref=f18e1940] [cursor=pointer]:
+                  - /url: "#browse-mergetree-table-settings"
+                - generic [ref=f18e1945] [cursor=pointer]: Browse MergeTree table settings
+              - generic [ref=f18e1946]:
+                - searchbox "Search settings" [ref=f18e1948]
+                - generic [ref=f18e1949]:
+                  - generic [ref=f18e1950]:
+                    - generic [ref=f18e1951]: /merge-tree-settings
+                    - button "Expand all" [ref=f18e1952] [cursor=pointer]
+                  - button "add_minmax_* 5 settings" [ref=f18e1957] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e1958]: ▸
+                    - generic [aria-hidden] [ref=f18e1959]: ├─
+                    - generic [ref=f18e1960]: add_minmax_*
+                    - generic [ref=f18e1961]: 5 settings
+                  - button "allow_* 13 settings" [ref=f18e1963] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e1964]: ▸
+                    - generic [aria-hidden] [ref=f18e1965]: ├─
+                    - generic [ref=f18e1966]: allow_*
+                    - generic [ref=f18e1967]: 13 settings
+                  - button "allow_experimental_* 3 settings" [ref=f18e1969] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e1970]: ▸
+                    - generic [aria-hidden] [ref=f18e1971]: ├─
+                    - generic [ref=f18e1972]: allow_experimental_*
+                    - generic [ref=f18e1973]: 3 settings
+                  - button "always_fetch_* 2 settings" [ref=f18e1975] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e1976]: ▸
+                    - generic [aria-hidden] [ref=f18e1977]: ├─
+                    - generic [ref=f18e1978]: always_fetch_*
+                    - generic [ref=f18e1979]: 2 settings
+                  - button "async_* 2 settings" [ref=f18e1981] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e1982]: ▸
+                    - generic [aria-hidden] [ref=f18e1983]: ├─
+                    - generic [ref=f18e1984]: async_*
+                    - generic [ref=f18e1985]: 2 settings
+                  - button "cache_populated_by_fetch_* 2 settings" [ref=f18e1987] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e1988]: ▸
+                    - generic [aria-hidden] [ref=f18e1989]: ├─
+                    - generic [ref=f18e1990]: cache_populated_by_fetch_*
+                    - generic [ref=f18e1991]: 2 settings
+                  - button "check_* 2 settings" [ref=f18e1993] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e1994]: ▸
+                    - generic [aria-hidden] [ref=f18e1995]: ├─
+                    - generic [ref=f18e1996]: check_*
+                    - generic [ref=f18e1997]: 2 settings
+                  - button "cleanup_* 2 settings" [ref=f18e1999] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2000]: ▸
+                    - generic [aria-hidden] [ref=f18e2001]: ├─
+                    - generic [ref=f18e2002]: cleanup_*
+                    - generic [ref=f18e2003]: 2 settings
+                  - button "cleanup_delay_period_* 2 settings" [ref=f18e2005] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2006]: ▸
+                    - generic [aria-hidden] [ref=f18e2007]: ├─
+                    - generic [ref=f18e2008]: cleanup_delay_period_*
+                    - generic [ref=f18e2009]: 2 settings
+                  - button "columns_* 2 settings" [ref=f18e2011] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2012]: ▸
+                    - generic [aria-hidden] [ref=f18e2013]: ├─
+                    - generic [ref=f18e2014]: columns_*
+                    - generic [ref=f18e2015]: 2 settings
+                  - button "compact_parts_* 3 settings" [ref=f18e2017] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2018]: ▸
+                    - generic [aria-hidden] [ref=f18e2019]: ├─
+                    - generic [ref=f18e2020]: compact_parts_*
+                    - generic [ref=f18e2021]: 3 settings
+                  - button "compress_* 3 settings" [ref=f18e2023] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2024]: ▸
+                    - generic [aria-hidden] [ref=f18e2025]: ├─
+                    - generic [ref=f18e2026]: compress_*
+                    - generic [ref=f18e2027]: 3 settings
+                  - button "concurrent_part_removal_threshold_* 2 settings" [ref=f18e2029] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2030]: ▸
+                    - generic [aria-hidden] [ref=f18e2031]: ├─
+                    - generic [ref=f18e2032]: concurrent_part_removal_threshold_*
+                    - generic [ref=f18e2033]: 2 settings
+                  - button "dead_blobs_* 2 settings" [ref=f18e2035] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2036]: ▸
+                    - generic [aria-hidden] [ref=f18e2037]: ├─
+                    - generic [ref=f18e2038]: dead_blobs_*
+                    - generic [ref=f18e2039]: 2 settings
+                  - button "detach_* 2 settings" [ref=f18e2041] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2042]: ▸
+                    - generic [aria-hidden] [ref=f18e2043]: ├─
+                    - generic [ref=f18e2044]: detach_*
+                    - generic [ref=f18e2045]: 2 settings
+                  - button "disable_* 3 settings" [ref=f18e2047] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2048]: ▸
+                    - generic [aria-hidden] [ref=f18e2049]: ├─
+                    - generic [ref=f18e2050]: disable_*
+                    - generic [ref=f18e2051]: 3 settings
+                  - button "distributed_index_* 2 settings" [ref=f18e2053] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2054]: ▸
+                    - generic [aria-hidden] [ref=f18e2055]: ├─
+                    - generic [ref=f18e2056]: distributed_index_*
+                    - generic [ref=f18e2057]: 2 settings
+                  - button "enable_* 8 settings" [ref=f18e2059] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2060]: ▸
+                    - generic [aria-hidden] [ref=f18e2061]: ├─
+                    - generic [ref=f18e2062]: enable_*
+                    - generic [ref=f18e2063]: 8 settings
+                  - button "enable_block_* 2 settings" [ref=f18e2065] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2066]: ▸
+                    - generic [aria-hidden] [ref=f18e2067]: ├─
+                    - generic [ref=f18e2068]: enable_block_*
+                    - generic [ref=f18e2069]: 2 settings
+                  - button "escape_* 2 settings" [ref=f18e2071] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2072]: ▸
+                    - generic [aria-hidden] [ref=f18e2073]: ├─
+                    - generic [ref=f18e2074]: escape_*
+                    - generic [ref=f18e2075]: 2 settings
+                  - button "exclude_* 2 settings" [ref=f18e2077] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2078]: ▸
+                    - generic [aria-hidden] [ref=f18e2079]: ├─
+                    - generic [ref=f18e2080]: exclude_*
+                    - generic [ref=f18e2081]: 2 settings
+                  - button "fault_probability_* 2 settings" [ref=f18e2083] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2084]: ▸
+                    - generic [aria-hidden] [ref=f18e2085]: ├─
+                    - generic [ref=f18e2086]: fault_probability_*
+                    - generic [ref=f18e2087]: 2 settings
+                  - button "fsync_* 2 settings" [ref=f18e2089] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2090]: ▸
+                    - generic [aria-hidden] [ref=f18e2091]: ├─
+                    - generic [ref=f18e2092]: fsync_*
+                    - generic [ref=f18e2093]: 2 settings
+                  - button "in_memory_* 2 settings" [ref=f18e2095] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2096]: ▸
+                    - generic [aria-hidden] [ref=f18e2097]: ├─
+                    - generic [ref=f18e2098]: in_memory_*
+                    - generic [ref=f18e2099]: 2 settings
+                  - button "inactive_parts_* 2 settings" [ref=f18e2101] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2102]: ▸
+                    - generic [aria-hidden] [ref=f18e2103]: ├─
+                    - generic [ref=f18e2104]: inactive_parts_*
+                    - generic [ref=f18e2105]: 2 settings
+                  - button "index_granularity_* 2 settings" [ref=f18e2107] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2108]: ▸
+                    - generic [aria-hidden] [ref=f18e2109]: ├─
+                    - generic [ref=f18e2110]: index_granularity_*
+                    - generic [ref=f18e2111]: 2 settings
+                  - button "kill_delay_period_* 2 settings" [ref=f18e2113] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2114]: ▸
+                    - generic [aria-hidden] [ref=f18e2115]: ├─
+                    - generic [ref=f18e2116]: kill_delay_period_*
+                    - generic [ref=f18e2117]: 2 settings
+                  - button "map_buckets_* 3 settings" [ref=f18e2119] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2120]: ▸
+                    - generic [aria-hidden] [ref=f18e2121]: ├─
+                    - generic [ref=f18e2122]: map_buckets_*
+                    - generic [ref=f18e2123]: 3 settings
+                  - button "map_serialization_version_* 2 settings" [ref=f18e2125] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2126]: ▸
+                    - generic [aria-hidden] [ref=f18e2127]: ├─
+                    - generic [ref=f18e2128]: map_serialization_version_*
+                    - generic [ref=f18e2129]: 2 settings
+                  - button "marks_* 2 settings" [ref=f18e2131] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2132]: ▸
+                    - generic [aria-hidden] [ref=f18e2133]: ├─
+                    - generic [ref=f18e2134]: marks_*
+                    - generic [ref=f18e2135]: 2 settings
+                  - button "materialize_* 3 settings" [ref=f18e2137] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2138]: ▸
+                    - generic [aria-hidden] [ref=f18e2139]: ├─
+                    - generic [ref=f18e2140]: materialize_*
+                    - generic [ref=f18e2141]: 3 settings
+                  - button "materialize_projections_* 2 settings" [ref=f18e2143] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2144]: ▸
+                    - generic [aria-hidden] [ref=f18e2145]: ├─
+                    - generic [ref=f18e2146]: materialize_projections_*
+                    - generic [ref=f18e2147]: 2 settings
+                  - button "max_* 17 settings" [ref=f18e2149] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2150]: ▸
+                    - generic [aria-hidden] [ref=f18e2151]: ├─
+                    - generic [ref=f18e2152]: max_*
+                    - generic [ref=f18e2153]: 17 settings
+                  - button "max_bytes_* 2 settings" [ref=f18e2155] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2156]: ▸
+                    - generic [aria-hidden] [ref=f18e2157]: ├─
+                    - generic [ref=f18e2158]: max_bytes_*
+                    - generic [ref=f18e2159]: 2 settings
+                  - button "max_delay_* 2 settings" [ref=f18e2161] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2162]: ▸
+                    - generic [aria-hidden] [ref=f18e2163]: ├─
+                    - generic [ref=f18e2164]: max_delay_*
+                    - generic [ref=f18e2165]: 2 settings
+                  - button "max_files_* 2 settings" [ref=f18e2167] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2168]: ▸
+                    - generic [aria-hidden] [ref=f18e2169]: ├─
+                    - generic [ref=f18e2170]: max_files_*
+                    - generic [ref=f18e2171]: 2 settings
+                  - button "max_merge_* 2 settings" [ref=f18e2173] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2174]: ▸
+                    - generic [aria-hidden] [ref=f18e2175]: ├─
+                    - generic [ref=f18e2176]: max_merge_*
+                    - generic [ref=f18e2177]: 2 settings
+                  - button "max_number_* 2 settings" [ref=f18e2179] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2180]: ▸
+                    - generic [aria-hidden] [ref=f18e2181]: ├─
+                    - generic [ref=f18e2182]: max_number_*
+                    - generic [ref=f18e2183]: 2 settings
+                  - button "max_part_* 2 settings" [ref=f18e2185] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2186]: ▸
+                    - generic [aria-hidden] [ref=f18e2187]: ├─
+                    - generic [ref=f18e2188]: max_part_*
+                    - generic [ref=f18e2189]: 2 settings
+                  - button "max_parts_* 2 settings" [ref=f18e2191] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2192]: ▸
+                    - generic [aria-hidden] [ref=f18e2193]: ├─
+                    - generic [ref=f18e2194]: max_parts_*
+                    - generic [ref=f18e2195]: 2 settings
+                  - button "max_postpone_* 4 settings" [ref=f18e2197] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2198]: ▸
+                    - generic [aria-hidden] [ref=f18e2199]: ├─
+                    - generic [ref=f18e2200]: max_postpone_*
+                    - generic [ref=f18e2201]: 4 settings
+                  - button "max_replicated_* 6 settings" [ref=f18e2203] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2204]: ▸
+                    - generic [aria-hidden] [ref=f18e2205]: ├─
+                    - generic [ref=f18e2206]: max_replicated_*
+                    - generic [ref=f18e2207]: 6 settings
+                  - button "max_suspicious_broken_parts_* 2 settings" [ref=f18e2209] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2210]: ▸
+                    - generic [aria-hidden] [ref=f18e2211]: ├─
+                    - generic [ref=f18e2212]: max_suspicious_broken_parts_*
+                    - generic [ref=f18e2213]: 2 settings
+                  - button "merge_* 3 settings" [ref=f18e2215] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2216]: ▸
+                    - generic [aria-hidden] [ref=f18e2217]: ├─
+                    - generic [ref=f18e2218]: merge_*
+                    - generic [ref=f18e2219]: 3 settings
+                  - button "merge_max_* 5 settings" [ref=f18e2221] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2222]: ▸
+                    - generic [aria-hidden] [ref=f18e2223]: ├─
+                    - generic [ref=f18e2224]: merge_max_*
+                    - generic [ref=f18e2225]: 5 settings
+                  - button "merge_selecting_* 2 settings" [ref=f18e2227] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2228]: ▸
+                    - generic [aria-hidden] [ref=f18e2229]: ├─
+                    - generic [ref=f18e2230]: merge_selecting_*
+                    - generic [ref=f18e2231]: 2 settings
+                  - button "merge_selector_* 11 settings" [ref=f18e2233] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2234]: ▸
+                    - generic [aria-hidden] [ref=f18e2235]: ├─
+                    - generic [ref=f18e2236]: merge_selector_*
+                    - generic [ref=f18e2237]: 11 settings
+                  - button "merge_tree_* 4 settings" [ref=f18e2239] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2240]: ▸
+                    - generic [aria-hidden] [ref=f18e2241]: ├─
+                    - generic [ref=f18e2242]: merge_tree_*
+                    - generic [ref=f18e2243]: 4 settings
+                  - button "merge_with_* 2 settings" [ref=f18e2245] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2246]: ▸
+                    - generic [aria-hidden] [ref=f18e2247]: ├─
+                    - generic [ref=f18e2248]: merge_with_*
+                    - generic [ref=f18e2249]: 2 settings
+                  - button "min_* 10 settings" [ref=f18e2251] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2252]: ▸
+                    - generic [aria-hidden] [ref=f18e2253]: ├─
+                    - generic [ref=f18e2254]: min_*
+                    - generic [ref=f18e2255]: 10 settings
+                  - button "min_age_* 2 settings" [ref=f18e2257] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2258]: ▸
+                    - generic [aria-hidden] [ref=f18e2259]: ├─
+                    - generic [ref=f18e2260]: min_age_*
+                    - generic [ref=f18e2261]: 2 settings
+                  - button "min_bytes_* 5 settings" [ref=f18e2263] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2264]: ▸
+                    - generic [aria-hidden] [ref=f18e2265]: ├─
+                    - generic [ref=f18e2266]: min_bytes_*
+                    - generic [ref=f18e2267]: 5 settings
+                  - button "min_compressed_* 2 settings" [ref=f18e2269] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2270]: ▸
+                    - generic [aria-hidden] [ref=f18e2271]: ├─
+                    - generic [ref=f18e2272]: min_compressed_*
+                    - generic [ref=f18e2273]: 2 settings
+                  - button "min_delay_* 2 settings" [ref=f18e2275] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2276]: ▸
+                    - generic [aria-hidden] [ref=f18e2277]: ├─
+                    - generic [ref=f18e2278]: min_delay_*
+                    - generic [ref=f18e2279]: 2 settings
+                  - button "min_free_* 2 settings" [ref=f18e2281] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2282]: ▸
+                    - generic [aria-hidden] [ref=f18e2283]: ├─
+                    - generic [ref=f18e2284]: min_free_*
+                    - generic [ref=f18e2285]: 2 settings
+                  - button "min_level_* 2 settings" [ref=f18e2287] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2288]: ▸
+                    - generic [aria-hidden] [ref=f18e2289]: ├─
+                    - generic [ref=f18e2290]: min_level_*
+                    - generic [ref=f18e2291]: 2 settings
+                  - button "min_relative_* 3 settings" [ref=f18e2293] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2294]: ▸
+                    - generic [aria-hidden] [ref=f18e2295]: ├─
+                    - generic [ref=f18e2296]: min_relative_*
+                    - generic [ref=f18e2297]: 3 settings
+                  - button "min_rows_* 4 settings" [ref=f18e2299] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2300]: ▸
+                    - generic [aria-hidden] [ref=f18e2301]: ├─
+                    - generic [ref=f18e2302]: min_rows_*
+                    - generic [ref=f18e2303]: 4 settings
+                  - button "number_of_* 6 settings" [ref=f18e2305] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2306]: ▸
+                    - generic [aria-hidden] [ref=f18e2307]: ├─
+                    - generic [ref=f18e2308]: number_of_*
+                    - generic [ref=f18e2309]: 6 settings
+                  - button "object_shared_* 5 settings" [ref=f18e2311] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2312]: ▸
+                    - generic [aria-hidden] [ref=f18e2313]: ├─
+                    - generic [ref=f18e2314]: object_shared_*
+                    - generic [ref=f18e2315]: 5 settings
+                  - button "part_moves_* 2 settings" [ref=f18e2317] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2318]: ▸
+                    - generic [aria-hidden] [ref=f18e2319]: ├─
+                    - generic [ref=f18e2320]: part_moves_*
+                    - generic [ref=f18e2321]: 2 settings
+                  - button "parts_to_* 2 settings" [ref=f18e2323] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2324]: ▸
+                    - generic [aria-hidden] [ref=f18e2325]: ├─
+                    - generic [ref=f18e2326]: parts_to_*
+                    - generic [ref=f18e2327]: 2 settings
+                  - button "prefer_fetch_* 2 settings" [ref=f18e2329] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2330]: ▸
+                    - generic [aria-hidden] [ref=f18e2331]: ├─
+                    - generic [ref=f18e2332]: prefer_fetch_*
+                    - generic [ref=f18e2333]: 2 settings
+                  - button "prewarm_* 2 settings" [ref=f18e2335] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2336]: ▸
+                    - generic [aria-hidden] [ref=f18e2337]: ├─
+                    - generic [ref=f18e2338]: prewarm_*
+                    - generic [ref=f18e2339]: 2 settings
+                  - button "primary_key_* 4 settings" [ref=f18e2341] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2342]: ▸
+                    - generic [aria-hidden] [ref=f18e2343]: ├─
+                    - generic [ref=f18e2344]: primary_key_*
+                    - generic [ref=f18e2345]: 4 settings
+                  - button "refresh_* 2 settings" [ref=f18e2347] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2348]: ▸
+                    - generic [aria-hidden] [ref=f18e2349]: ├─
+                    - generic [ref=f18e2350]: refresh_*
+                    - generic [ref=f18e2351]: 2 settings
+                  - button "remote_fs_* 3 settings" [ref=f18e2353] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2354]: ▸
+                    - generic [aria-hidden] [ref=f18e2355]: ├─
+                    - generic [ref=f18e2356]: remote_fs_*
+                    - generic [ref=f18e2357]: 3 settings
+                  - button "remove_* 3 settings" [ref=f18e2359] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2360]: ▸
+                    - generic [aria-hidden] [ref=f18e2361]: ├─
+                    - generic [ref=f18e2362]: remove_*
+                    - generic [ref=f18e2363]: 3 settings
+                  - button "replicated_deduplication_window_* 4 settings" [ref=f18e2365] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2366]: ▸
+                    - generic [aria-hidden] [ref=f18e2367]: ├─
+                    - generic [ref=f18e2368]: replicated_deduplication_window_*
+                    - generic [ref=f18e2369]: 4 settings
+                  - button "replicated_fetches_* 5 settings" [ref=f18e2371] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2372]: ▸
+                    - generic [aria-hidden] [ref=f18e2373]: ├─
+                    - generic [ref=f18e2374]: replicated_fetches_*
+                    - generic [ref=f18e2375]: 5 settings
+                  - button "replicated_max_* 7 settings" [ref=f18e2377] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2378]: ▸
+                    - generic [aria-hidden] [ref=f18e2379]: ├─
+                    - generic [ref=f18e2380]: replicated_max_*
+                    - generic [ref=f18e2381]: 7 settings
+                  - button "shared_merge_* 53 settings" [ref=f18e2383] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2384]: ▸
+                    - generic [aria-hidden] [ref=f18e2385]: ├─
+                    - generic [ref=f18e2386]: shared_merge_*
+                    - generic [ref=f18e2387]: 53 settings
+                  - button "sleep_before_* 2 settings" [ref=f18e2389] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2390]: ▸
+                    - generic [aria-hidden] [ref=f18e2391]: ├─
+                    - generic [ref=f18e2392]: sleep_before_*
+                    - generic [ref=f18e2393]: 2 settings
+                  - button "table_* 2 settings" [ref=f18e2395] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2396]: ▸
+                    - generic [aria-hidden] [ref=f18e2397]: ├─
+                    - generic [ref=f18e2398]: table_*
+                    - generic [ref=f18e2399]: 2 settings
+                  - button "text_index_* 7 settings" [ref=f18e2401] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2402]: ▸
+                    - generic [aria-hidden] [ref=f18e2403]: ├─
+                    - generic [ref=f18e2404]: text_index_*
+                    - generic [ref=f18e2405]: 7 settings
+                  - button "use_* 6 settings" [ref=f18e2407] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2408]: ▸
+                    - generic [aria-hidden] [ref=f18e2409]: ├─
+                    - generic [ref=f18e2410]: use_*
+                    - generic [ref=f18e2411]: 6 settings
+                  - button "use_minimalistic_* 2 settings" [ref=f18e2413] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2414]: ▸
+                    - generic [aria-hidden] [ref=f18e2415]: ├─
+                    - generic [ref=f18e2416]: use_minimalistic_*
+                    - generic [ref=f18e2417]: 2 settings
+                  - button "vertical_merge_* 6 settings" [ref=f18e2419] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2420]: ▸
+                    - generic [aria-hidden] [ref=f18e2421]: ├─
+                    - generic [ref=f18e2422]: vertical_merge_*
+                    - generic [ref=f18e2423]: 6 settings
+                  - button "write_* 2 settings" [ref=f18e2425] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2426]: ▸
+                    - generic [aria-hidden] [ref=f18e2427]: ├─
+                    - generic [ref=f18e2428]: write_*
+                    - generic [ref=f18e2429]: 2 settings
+                  - button "write_ahead_* 3 settings" [ref=f18e2431] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2432]: ▸
+                    - generic [aria-hidden] [ref=f18e2433]: ├─
+                    - generic [ref=f18e2434]: write_ahead_*
+                    - generic [ref=f18e2435]: 3 settings
+                  - button "zero_copy_* 4 settings" [ref=f18e2437] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2438]: ▸
+                    - generic [aria-hidden] [ref=f18e2439]: ├─
+                    - generic [ref=f18e2440]: zero_copy_*
+                    - generic [ref=f18e2441]: 4 settings
+                  - button "Other 55 settings" [ref=f18e2443] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f18e2444]: ▸
+                    - generic [aria-hidden] [ref=f18e2445]: └─
+                    - generic [ref=f18e2446]: Other
+                    - generic [ref=f18e2447]: 55 settings
+            - generic [ref=f18e2449]:
+              - paragraph [ref=f18e2450]: Was this page helpful?
+              - generic [ref=f18e2451]:
+                - generic [ref=f18e2452]:
+                  - button "Yes" [ref=f18e2453] [cursor=pointer]
+                  - button "No" [ref=f18e2458] [cursor=pointer]
+                - generic [ref=f18e2463]:
+                  - link "Suggest edits" [ref=f18e2464] [cursor=pointer]:
+                    - /url: https://github.com/clickhouse/clickhouse/edit/master/docs/reference/settings/merge-tree-settings.mdx
+                  - link "Raise issue" [ref=f18e2470] [cursor=pointer]:
+                    - /url: https://github.com/ClickHouse/ClickHouse/issues/new?template=60_documentation-issue.yaml&page=%2Freference%2Fsettings%2Fmerge-tree-settings
+            - navigation "Pagination" [ref=f18e2475]:
+              - 'link "Previous: Other" [ref=f18e2476] [cursor=pointer]':
+                - /url: /docs/reference/settings/session-settings/other
+                - generic [ref=f18e2479]: Previous
+              - link "add_minmax_* Next" [ref=f18e2480] [cursor=pointer]:
+                - /url: /docs/reference/settings/merge-tree-settings/add-minmax
+                - generic [ref=f18e2481]:
+                  - generic [ref=f18e2482]: add_minmax_*
+                  - generic [ref=f18e2485]: Next
+          - generic [ref=f18e2491]:
+            - navigation [ref=f18e2492]:
+              - heading [level=2] [ref=f18e2493]:
+                - button "On this page" [ref=f18e2494] [cursor=pointer]
+              - list [ref=f18e2498]:
+                - listitem [ref=f18e2499]:
+                  - link "MergeTree settings" [ref=f18e2500] [cursor=pointer]:
+                    - /url: "#mergetree-settings"
+                - listitem [ref=f18e2501]:
+                  - link "Browse MergeTree table settings" [ref=f18e2502] [cursor=pointer]:
+                    - /url: "#browse-mergetree-table-settings"
+            - generic [ref=f18e2504]:
+              - button "Copy page" [ref=f18e2505] [cursor=pointer]
+              - button "View as Markdown" [ref=f18e2510] [cursor=pointer]
+              - button "Download PDF" [ref=f18e2519] [cursor=pointer]
+              - button "Set up the ClickHouse documentation MCP server" [ref=f18e2524] [cursor=pointer]
+      - contentinfo [ref=f18e2530]:
+        - generic [ref=f18e2531]:
+          - generic [ref=f18e2532]:
+            - generic [ref=f18e2533]:
+              - generic [ref=f18e2534]:
+                - heading "Product" [level=3] [ref=f18e2535]
+                - list [ref=f18e2536]:
+                  - listitem [ref=f18e2537]:
+                    - link "ClickHouse Cloud" [ref=f18e2538] [cursor=pointer]:
+                      - /url: https://clickhouse.com/cloud
+                  - listitem [ref=f18e2539]:
+                    - link "Bring Your Own Cloud" [ref=f18e2540] [cursor=pointer]:
+                      - /url: https://clickhouse.com/cloud/bring-your-own-cloud
+                  - listitem [ref=f18e2541]:
+                    - link "Postgres managed by ClickHouse" [ref=f18e2542] [cursor=pointer]:
+                      - /url: https://clickhouse.com/cloud/postgres
+                  - listitem [ref=f18e2543]:
+                    - link "Managed ClickStack" [ref=f18e2544] [cursor=pointer]:
+                      - /url: https://clickhouse.com/cloud/clickstack
+                  - listitem [ref=f18e2545]:
+                    - link "ClickHouse" [ref=f18e2546] [cursor=pointer]:
+                      - /url: https://clickhouse.com/clickhouse
+                  - listitem [ref=f18e2547]:
+                    - link "ClickStack" [ref=f18e2548] [cursor=pointer]:
+                      - /url: https://clickhouse.com/clickstack
+                  - listitem [ref=f18e2549]:
+                    - link "Agentic Data Stack" [ref=f18e2550] [cursor=pointer]:
+                      - /url: https://clickhouse.com/ai
+                  - listitem [ref=f18e2551]:
+                    - link "ClickHouse Government" [ref=f18e2552] [cursor=pointer]:
+                      - /url: https://clickhouse.com/government
+                  - listitem [ref=f18e2553]:
+                    - link "ClickHouse Keeper" [ref=f18e2554] [cursor=pointer]:
+                      - /url: https://clickhouse.com/clickhouse/keeper
+                  - listitem [ref=f18e2555]:
+                    - link "ClickPipes" [ref=f18e2556] [cursor=pointer]:
+                      - /url: https://clickhouse.com/cloud/clickpipes
+                  - listitem [ref=f18e2557]:
+                    - link "Integrations" [ref=f18e2558] [cursor=pointer]:
+                      - /url: https://clickhouse.com/integrations
+                  - listitem [ref=f18e2559]:
+                    - link "chDB" [ref=f18e2560] [cursor=pointer]:
+                      - /url: https://clickhouse.com/chdb
+                  - listitem [ref=f18e2561]:
+                    - link "Pricing" [ref=f18e2562] [cursor=pointer]:
+                      - /url: https://clickhouse.com/pricing
+              - generic [ref=f18e2563]:
+                - heading "Resources" [level=3] [ref=f18e2564]
+                - list [ref=f18e2565]:
+                  - listitem [ref=f18e2566]:
+                    - link "Documentation" [ref=f18e2567] [cursor=pointer]:
+                      - /url: https://clickhouse.com/docs
+                  - listitem [ref=f18e2568]:
+                    - link "Trust Center" [ref=f18e2569] [cursor=pointer]:
+                      - /url: https://trust.clickhouse.com
+                  - listitem [ref=f18e2570]:
+                    - link "Training" [ref=f18e2571] [cursor=pointer]:
+                      - /url: https://clickhouse.com/learn
+                  - listitem [ref=f18e2572]:
+                    - link "Support" [ref=f18e2573] [cursor=pointer]:
+                      - /url: https://clickhouse.com/support/program
+                  - listitem [ref=f18e2574]:
+                    - link "Benchmarks" [ref=f18e2575] [cursor=pointer]:
+                      - /url: https://clickhouse.com/benchmarks
+                  - listitem [ref=f18e2576]:
+                    - link "Use Cases" [ref=f18e2577] [cursor=pointer]:
+                      - /url: https://clickhouse.com/use-cases
+                  - listitem [ref=f18e2578]:
+                    - link "Videos" [ref=f18e2579] [cursor=pointer]:
+                      - /url: https://clickhouse.com/videos
+                  - listitem [ref=f18e2580]:
+                    - link "Demos" [ref=f18e2581] [cursor=pointer]:
+                      - /url: https://clickhouse.com/demos
+                  - listitem [ref=f18e2582]:
+                    - link "Presentations" [ref=f18e2583] [cursor=pointer]:
+                      - /url: https://presentations.clickhouse.com/
+                  - listitem [ref=f18e2584]:
+                    - link "Real-time Data Warehouse" [ref=f18e2585] [cursor=pointer]:
+                      - /url: https://clickhouse.com/real-time-data-warehouse
+                  - listitem [ref=f18e2586]:
+                    - link "Engineering Resources" [ref=f18e2587] [cursor=pointer]:
+                      - /url: https://clickhouse.com/resources/engineering
+              - generic [ref=f18e2588]:
+                - heading "Company" [level=3] [ref=f18e2589]
+                - list [ref=f18e2590]:
+                  - listitem [ref=f18e2591]:
+                    - link "Blog" [ref=f18e2592] [cursor=pointer]:
+                      - /url: https://clickhouse.com/blog
+                  - listitem [ref=f18e2593]:
+                    - link "Our Story" [ref=f18e2594] [cursor=pointer]:
+                      - /url: https://clickhouse.com/company/our-story
+                  - listitem [ref=f18e2595]:
+                    - link "Careers" [ref=f18e2596] [cursor=pointer]:
+                      - /url: https://clickhouse.com/company/careers
+                  - listitem [ref=f18e2597]:
+                    - link "Contact Us" [ref=f18e2598] [cursor=pointer]:
+                      - /url: https://clickhouse.com/company/contact
+                  - listitem [ref=f18e2599]:
+                    - link "Events" [ref=f18e2600] [cursor=pointer]:
+                      - /url: https://clickhouse.com/company/events
+                  - listitem [ref=f18e2601]:
+                    - link "News" [ref=f18e2602] [cursor=pointer]:
+                      - /url: https://clickhouse.com/company/news
+                  - listitem [ref=f18e2603]:
+                    - link "Media" [ref=f18e2604] [cursor=pointer]:
+                      - /url: https://clickhouse.com/media
+              - generic [ref=f18e2605]:
+                - heading "Join our community" [level=3] [ref=f18e2606]
+                - list [ref=f18e2607]:
+                  - listitem [ref=f18e2608]:
+                    - link "GitHub" [ref=f18e2609] [cursor=pointer]:
+                      - /url: https://github.com/ClickHouse/ClickHouse
+                  - listitem [ref=f18e2610]:
+                    - link "Slack" [ref=f18e2611] [cursor=pointer]:
+                      - /url: https://clickhouse.com/slack
+                  - listitem [ref=f18e2612]:
+                    - link "LinkedIn" [ref=f18e2613] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/clickhouseinc
+                  - listitem [ref=f18e2614]:
+                    - link "X" [ref=f18e2615] [cursor=pointer]:
+                      - /url: https://x.com/ClickHouseDB
+                  - listitem [ref=f18e2616]:
+                    - link "Bluesky" [ref=f18e2617] [cursor=pointer]:
+                      - /url: https://bsky.app/profile/clickhouse.com
+                  - listitem [ref=f18e2618]:
+                    - link "Telegram" [ref=f18e2619] [cursor=pointer]:
+                      - /url: https://telegram.me/clickhouse_en
+                  - listitem [ref=f18e2620]:
+                    - link "Meetup" [ref=f18e2621] [cursor=pointer]:
+                      - /url: https://www.meetup.com/pro/clickhouse
+              - generic [ref=f18e2622]:
+                - heading "Comparisons" [level=3] [ref=f18e2623]
+                - list [ref=f18e2624]:
+                  - listitem [ref=f18e2625]:
+                    - link "BigQuery" [ref=f18e2626] [cursor=pointer]:
+                      - /url: https://clickhouse.com/comparison/bigquery
+                  - listitem [ref=f18e2627]:
+                    - link "PostgreSQL" [ref=f18e2628] [cursor=pointer]:
+                      - /url: https://clickhouse.com/comparison/postgresql
+                  - listitem [ref=f18e2629]:
+                    - link "Redshift" [ref=f18e2630] [cursor=pointer]:
+                      - /url: https://clickhouse.com/comparison/redshift
+                  - listitem [ref=f18e2631]:
+                    - link "Snowflake" [ref=f18e2632] [cursor=pointer]:
+                      - /url: https://clickhouse.com/comparison/snowflake
+                  - listitem [ref=f18e2633]:
+                    - link "Elastic" [ref=f18e2634] [cursor=pointer]:
+                      - /url: https://clickhouse.com/comparison/elastic-for-observability
+                  - listitem [ref=f18e2635]:
+                    - link "Splunk" [ref=f18e2636] [cursor=pointer]:
+                      - /url: https://clickhouse.com/comparison/splunk-for-observability
+                  - listitem [ref=f18e2637]:
+                    - link "OpenSearch" [ref=f18e2638] [cursor=pointer]:
+                      - /url: https://clickhouse.com/comparison/opensearch-for-observability
+                - heading "Partners" [level=3] [ref=f18e2639]
+                - list [ref=f18e2640]:
+                  - listitem [ref=f18e2641]:
+                    - link "AWS" [ref=f18e2642] [cursor=pointer]:
+                      - /url: https://clickhouse.com/partners/aws
+                  - listitem [ref=f18e2643]:
+                    - link "Azure" [ref=f18e2644] [cursor=pointer]:
+                      - /url: https://clickhouse.com/partners/azure
+            - link "Star us on Github" [ref=f18e2655] [cursor=pointer]:
+              - /url: https://github.com/ClickHouse/ClickHouse
+          - generic [ref=f18e2659]:
+            - generic [ref=f18e2660]: © 2026 ClickHouse, Inc. HQ in the Bay Area, CA and Amsterdam, NL.
+            - generic [ref=f18e2661]:
+              - link "Trademark" [ref=f18e2662] [cursor=pointer]:
+                - /url: https://clickhouse.com/legal/trademark-policy
+              - link "Privacy" [ref=f18e2663] [cursor=pointer]:
+                - /url: https://clickhouse.com/legal/privacy-policy
+              - link "Security" [ref=f18e2664] [cursor=pointer]:
+                - /url: https://trust.clickhouse.com/
+              - link "Legal" [ref=f18e2665] [cursor=pointer]:
+                - /url: https://clickhouse.com/legal
+              - link "Cookie Policy" [ref=f18e2666] [cursor=pointer]:
+                - /url: https://clickhouse.com/legal/cookie-policy
+  - region "ClickHouse web terminal" [ref=f18e2667]:
+    - separator "Resize web terminal" [ref=f18e2668]
+    - generic [ref=f18e2669]:
+      - button "ClickHouse terminal ~" [ref=f18e2670] [cursor=pointer]:
+        - generic [ref=f18e2674]: ClickHouse terminal
+        - generic [ref=f18e2675]: ~
+      - button "Open web terminal" [ref=f18e2676] [cursor=pointer]
+  - alert [ref=f18e2679]
