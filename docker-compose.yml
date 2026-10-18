@@ -345,7 +345,6 @@ services:
       REALTIME_STREAMS_S2_BASIN: trigger-realtime
       REALTIME_STREAMS_S2_ENDPOINT: http://s2/v1
       REALTIME_STREAMS_S2_SKIP_ACCESS_TOKENS: "true"
-      DEV_OTEL_EXPORTER_OTLP_ENDPOINT: ${DEV_OTEL_EXPORTER_OTLP_ENDPOINT:-http://localhost:8030/otel}
 
   # ============================================================
   # Worker（Supervisor，任务调度执行）
