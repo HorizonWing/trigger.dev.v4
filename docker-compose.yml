@@ -194,7 +194,7 @@ services:
       CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-clickhouse123}
     volumes:
       - clickhouse_data:/var/lib/clickhouse
-      - ./clickhouse/override.xml:/etc/clickhouse-server/config.d/override.xml:ro
+      - ./clickhouse/trigger-settings.xml:/etc/clickhouse-server/config.d/trigger-settings.xml:ro
     ulimits:
       nofile:
         soft: 262144
