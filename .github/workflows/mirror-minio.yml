@@ -22,9 +22,9 @@ jobs:
       - name: Push minio images to GHCR
         run: |
           docker pull bitnamilegacy/minio:latest
-          docker tag  bitnamilegacy/minio:latest ghcr.io/${{ github.repository_owner }}/minio:latest
-          docker push ghcr.io/${{ github.repository_owner }}/minio:latest
+          docker tag  bitnamilegacy/minio:latest ghcr.io/horizonwing/minio:latest
+          docker push ghcr.io/horizonwing/minio:latest
 
           docker pull bitnamilegacy/minio-client:latest
-          docker tag  bitnamilegacy/minio-client:latest ghcr.io/${{ github.repository_owner }}/mc:latest
-          docker push ghcr.io/${{ github.repository_owner }}/mc:latest
+          docker tag  bitnamilegacy/minio-client:latest ghcr.io/horizonwing/mc:latest
+          docker push ghcr.io/horizonwing/mc:latest
