@@ -178,6 +178,7 @@ services:
       /bin/sh -c "
       mc alias set myminio http://minio:9000 ${OBJECT_STORE_ACCESS_KEY} ${OBJECT_STORE_SECRET_KEY};
       mc mb --ignore-existing myminio/packets;
+      mc mb --ignore-existing myminio/artifacts;
       exit 0;
       "
 
@@ -230,6 +231,10 @@ services:
         condition: service_healthy
       electric:
         condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
+      s2:
+        condition: service_started
     volumes:
       - shared_data:/home/node/shared
     user: root
@@ -257,7 +262,7 @@ services:
       SESSION_SECRET: ${SESSION_SECRET}
       MAGIC_LINK_SECRET: ${MAGIC_LINK_SECRET}
       ENCRYPTION_KEY: ${ENCRYPTION_KEY}
-      MANAGED_WORKER_SECRET: ${MANAGED_WORKER_SECRET:-managed-secret}
+      MANAGED_WORKER_SECRET: ${MANAGED_WORKER_SECRET:?请在 Dokploy .env 中设置强随机 MANAGED_WORKER_SECRET}
 
       # Electric
       ELECTRIC_ORIGIN: http://electric:3000
@@ -271,6 +276,9 @@ services:
       OBJECT_STORE_SECRET_ACCESS_KEY: ${OBJECT_STORE_SECRET_KEY}
       OBJECT_STORE_BUCKET: packets
       OBJECT_STORE_REGION: us-east-1
+      # dashboard Sessions 渲染（chat 快照/artifacts）使用独立桶
+      ARTIFACTS_OBJECT_STORE_BUCKET: artifacts
+      ARTIFACTS_OBJECT_STORE_BASE_URL: http://minio:9000
 
       # 内置镜像仓库
       DEPLOY_REGISTRY_HOST: ${REGISTRY_HOST:-localhost:5000}
@@ -340,10 +348,14 @@ services:
       # 内部 OTEL
       INTERNAL_OTEL_TRACE_LOGGING_ENABLED: ${INTERNAL_OTEL_TRACE_LOGGING_ENABLED:-0}
 
-      REALTIME_STREAMS_DEFAULT_VERSION: ${REALTIME_STREAMS_DEFAULT_VERSION:-v1}
+      # v2 = S2 流。v1 为 Redis-only 回退模式，Sessions/chat.agent 功能不可用
+      REALTIME_STREAMS_DEFAULT_VERSION: ${REALTIME_STREAMS_DEFAULT_VERSION:-v2}
 
-      REALTIME_STREAMS_S2_BASIN: trigger-realtime
-      REALTIME_STREAMS_S2_ENDPOINT: http://s2/v1
+      # S2 实时流：webapp 与 s2 同在 trigger-net 内网，走容器名直连（不经外网），
+      # 无需也不能使用 token（s2-lite 不支持鉴权，token 仅用于托管版 s2.dev）。
+      # 若要强制 webapp 走外网地址，把 ENDPOINT 改为 https://<域名或IP:端口>/v1
+      REALTIME_STREAMS_S2_BASIN: ${REALTIME_STREAMS_S2_BASIN:-trigger-realtime}
+      REALTIME_STREAMS_S2_ENDPOINT: ${REALTIME_STREAMS_S2_ENDPOINT:-http://s2/v1}
       REALTIME_STREAMS_S2_SKIP_ACCESS_TOKENS: "true"
 
   # ============================================================
@@ -370,7 +382,7 @@ services:
     command: sh -c "chown -R node:node /home/node/shared && exec /usr/bin/dumb-init -- pnpm run --filter supervisor start"
     environment:
       TRIGGER_WORKER_TOKEN: file:///home/node/shared/worker_token
-      MANAGED_WORKER_SECRET: ${MANAGED_WORKER_SECRET:-managed-secret}
+      MANAGED_WORKER_SECRET: ${MANAGED_WORKER_SECRET:?请在 Dokploy .env 中设置强随机 MANAGED_WORKER_SECRET}
       TRIGGER_API_URL: http://webapp:3000
       OTEL_EXPORTER_OTLP_ENDPOINT: http://webapp:3000/otel
       TRIGGER_WORKLOAD_API_DOMAIN: worker
@@ -431,6 +443,13 @@ services:
         condition: service_completed_successfully
     command: ["lite", "--init-file", "/config/s2-spec.json", "--local-root", "/data"]
     user: "0:0"
+    # 安全说明：s2-lite 不支持 access token 鉴权（token 仅用于托管版 s2.dev），
+    # 外网访问的安全只能靠网络层控制：
+    #   1) 默认绑定 127.0.0.1（宿主机本机访问，不对公网开放）
+    #   2) 需要外部访问时，将 S2_PUBLISH_IP 设为 0.0.0.0 并务必在防火墙/Dokploy 反代
+    #      上做 IP 白名单 + TLS，切勿裸暴露到公网
+    ports:
+      - "${S2_PUBLISH_IP:-127.0.0.1}:${S2_PORT:-8090}:80"
     volumes:
       - s2-config:/config
       - s2:/data
