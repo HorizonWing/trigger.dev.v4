@@ -1,4 +1,4 @@
-# 将 MinIO 镜像从 Docker Hub 转存到 GHCR（一次性维护任务）
+# 将 MinIO 镜像转存到 GHCR（一次性维护任务）
 name: mirror-minio-to-ghcr
 
 on:
@@ -21,10 +21,10 @@ jobs:
 
       - name: Push minio images to GHCR
         run: |
-          docker pull minio/minio:latest
-          docker tag  minio/minio:latest ghcr.io/${{ github.repository_owner }}/minio:latest
+          docker pull bitnamilegacy/minio:latest
+          docker tag  bitnamilegacy/minio:latest ghcr.io/${{ github.repository_owner }}/minio:latest
           docker push ghcr.io/${{ github.repository_owner }}/minio:latest
 
-          docker pull minio/mc:latest
-          docker tag  minio/mc:latest ghcr.io/${{ github.repository_owner }}/mc:latest
+          docker pull bitnamilegacy/minio-client:latest
+          docker tag  bitnamilegacy/minio-client:latest ghcr.io/${{ github.repository_owner }}/mc:latest
           docker push ghcr.io/${{ github.repository_owner }}/mc:latest
