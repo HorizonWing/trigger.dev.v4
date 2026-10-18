@@ -143,7 +143,7 @@ services:
   # ============================================================
 
   minio:
-    image: quay.io/minio/minio:latest
+    image: docker.1panel.live/minio/minio:latest
     restart: ${RESTART_POLICY:-unless-stopped}
     logging: *logging-config
     networks: [trigger-net]
@@ -164,7 +164,7 @@ services:
       start_period: 10s
 
   minio-init:
-    image: quay.io/minio/mc:latest
+    image: docker.1panel.live/minio/mc:latest
     restart: "no"
     networks: [trigger-net]
     depends_on:
