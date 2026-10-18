@@ -25,6 +25,8 @@ volumes:
   clickhouse_data:
   docker_certs:
   shared_data:
+  s2:
+  s2-config:
 
 services:
 
@@ -340,6 +342,11 @@ services:
 
       REALTIME_STREAMS_DEFAULT_VERSION: ${REALTIME_STREAMS_DEFAULT_VERSION:-v1}
 
+      REALTIME_STREAMS_DEFAULT_VERSION: v2
+      REALTIME_STREAMS_S2_BASIN: trigger-realtime
+      REALTIME_STREAMS_S2_ENDPOINT: http://s2/v1
+      REALTIME_STREAMS_S2_SKIP_ACCESS_TOKENS: "true"
+
   # ============================================================
   # Worker（Supervisor，任务调度执行）
   # ============================================================
@@ -392,3 +399,41 @@ services:
       timeout: 10s
       retries: 5
       start_period: 10s
+  
+  s2-init:
+    image: busybox:1.37
+    restart: "no"
+    environment:
+      REALTIME_STREAMS_S2_BASIN: ${REALTIME_STREAMS_S2_BASIN:-trigger-realtime}
+    command:
+      - sh
+      - -c
+      - |
+        cat > /config/s2-spec.json <<JSON
+        {
+          "basins": [
+            {
+              "name": "$$REALTIME_STREAMS_S2_BASIN",
+              "config": { "create_stream_on_append": true, "create_stream_on_read": true }
+            }
+          ]
+        }
+        JSON
+    volumes:
+      - s2-config:/config
+    networks:
+      - 你的webapp网络名
+
+  s2:
+    image: ${S2_IMAGE}
+    restart: unless-stopped
+    depends_on:
+      s2-init:
+        condition: service_completed_successfully
+    command: ["lite", "--init-file", "/config/s2-spec.json", "--local-root", "/data"]
+    user: "0:0"
+    volumes:
+      - s2-config:/config
+      - s2:/data
+    networks:
+      - 你的webapp网络名
