@@ -184,7 +184,8 @@ services:
   # ============================================================
 
   clickhouse:
-    image: clickhouse/clickhouse-server:${CLICKHOUSE_IMAGE_TAG:-25.5-alpine}
+    # trigger.dev v4.7.x 的全文索引迁移（040）需要 ClickHouse >= 25.10
+    image: clickhouse/clickhouse-server:${CLICKHOUSE_IMAGE_TAG:-25.12-alpine}
     restart: ${RESTART_POLICY:-unless-stopped}
     logging: *logging-config
     networks: [trigger-net]
