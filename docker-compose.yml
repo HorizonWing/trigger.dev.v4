@@ -421,7 +421,7 @@ services:
     volumes:
       - s2-config:/config
     networks:
-      - 你的webapp网络名
+      - trigger-net
 
   s2:
     image: ${S2_IMAGE}
@@ -435,4 +435,4 @@ services:
       - s2-config:/config
       - s2:/data
     networks:
-      - 你的webapp网络名
+      - trigger-net
