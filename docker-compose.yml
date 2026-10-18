@@ -143,10 +143,12 @@ services:
   # ============================================================
 
   minio:
-    image: docker.imgdb.de/minio/minio:latest
+    image: ghcr.io/horizonwing/minio:latest
     restart: ${RESTART_POLICY:-unless-stopped}
     logging: *logging-config
     networks: [trigger-net]
+    # bitnami 镜像默认以非 root 运行，挂载卷需 root 才能写入
+    user: root
     ports:
       - "${MINIO_PUBLISH_IP:-0.0.0.0}:9002:9000"
       - "${MINIO_PUBLISH_IP:-0.0.0.0}:9003:9001"
@@ -155,16 +157,16 @@ services:
       MINIO_ROOT_PASSWORD: ${OBJECT_STORE_SECRET_KEY}
     volumes:
       - minio_data:/data
-    command: server /data --console-address ":9001"
+    command: ["minio", "server", "/data", "--console-address", ":9001"]
     healthcheck:
-      test: ["CMD", "mc", "ready", "local"]
+      test: ["CMD-SHELL", "curl -sf http://localhost:9000/minio/health/live || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 10s
 
   minio-init:
-    image: docker.imgdb.de/minio/mc:latest
+    image: ghcr.io/horizonwing/mc:latest
     restart: "no"
     networks: [trigger-net]
     depends_on:
