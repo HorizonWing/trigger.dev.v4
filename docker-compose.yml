@@ -333,6 +333,8 @@ services:
       # 内部 OTEL
       INTERNAL_OTEL_TRACE_LOGGING_ENABLED: ${INTERNAL_OTEL_TRACE_LOGGING_ENABLED:-0}
 
+      REALTIME_STREAMS_DEFAULT_VERSION: ${REALTIME_STREAMS_DEFAULT_VERSION:-v1}
+
   # ============================================================
   # Worker（Supervisor，任务调度执行）
   # ============================================================
